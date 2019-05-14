@@ -1,0 +1,69 @@
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+    <form id="pagerForm" method="post" action="/manage/AuthorityController/listAuthority" onsubmit="return navTabSearch(this);">
+        <input type="hidden" name="pageNum" th:value="*{pageNum}"/>
+        <input type="hidden" name="numPerPage" th:value="*{numPerPage}"/>
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        权限名称：<input type="text" name="searchWord" th:value="${searchWord}"/>
+                    </td>
+                    <td>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">检索</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+
+<div class="pageContent" style="border-left:1px #B8D0D6 solid;border-right:1px #B8D0D6 solid;">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li class="verify" authority="xwgl-1"><a target="navTab" th:href="@{/manage/AuthorityController/addAuthority}" class="add"
+                            width="576" height="680" rel="addAuthority" mask="true" fresh="true"><span>添加</span></a>
+            </li>
+            <li class="verify" authority="xwgl-3"><a title="确定要删除吗?" href="/manage/AuthorityController/delAuthority" warn="请选择数据"
+                            class="delete" rel="ids" target="selectedTodo"><span>删除</span></a></li>
+            <li class="verify" authority="xwgl-2"><a target="navTab" href="/manage/AuthorityController/editAuthority?id={adminId}" warn="请选择数据"
+                            width="476" height="670" checked="true" mask="true" fresh="true" class="edit" rel="editAuthority"><span>修改</span></a></li>
+            <li class="line">line</li>
+        </ul>
+    </div>
+    <table class="table" width="100%" id="werqrqr" layoutH="135" style="text-align: center">
+        <thead>
+        <tr>
+            <th align="center"><input type="checkbox" group="ids" class="checkboxCtrl"></th>
+            <th>权限名称</th>
+            <th>权限功能描述</th>
+            <th>添加时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vo:${pager.data}" target="adminId" th:rel="${vo?.id}" class="orderTR1">
+            <td align="center"><input name="ids" th:value="${vo?.id}" type="checkbox"></td>
+            <td th:text="${vo?.authorityname}"></td>
+            <td th:text="${vo?.authorityDetail}"></td>
+            <td th:text="${#dates.format(vo?.created, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                <option value="20" th:selected="${numPerPage eq 100}">20</option>
+                <option value="50" th:selected="${numPerPage eq 100}">50</option>
+                <option value="100" th:selected="${numPerPage eq 100}">100</option>
+                <option value="200" th:selected="${numPerPage eq 200}">200</option>
+            </select>
+            <span th:text="'条，'+${total}+'条'"><!--共${total}--></span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="${total}" numPerPage="${numPerPage}"
+             pageNumShown="10" currentPage="${pageNum}"></div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="pageContent">
+    <form enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this, dialogAjaxDone)"
+          th:action="@{/manage/AdminController/saveAdmin}" method="POST">
+        <div class="pageFormContent" layoutH="56">
+            <p>
+                <label>管理员姓名：</label>
+                <input name="id" th:value="${admin}?${admin.id}:''" value="" type="hidden"/>
+                <input name="adminname" type="text" size="30" value="" class="textInput"
+                       th:value="${admin}?${admin.adminname}:''" readonly="readonly"/>
+            </p>
+            <p>
+                <label>来源单位：</label>
+                <input name="orgId" type="hidden" size="30" class="textInput" value="" th:value="${admin?.unitId?:''}" readonly="readonly"/>
+                <input name="name" type="text" size="30" class="textInput" th:value="${admin?.unitname?:''}" readonly="readonly">
+            </p>
+            <p>
+                <label>管理员密码：</label>
+                <input name="password" type="password" size="30" value="" class="required"/>
+            </p>
+            <p>
+                <label>管理员状态</label>
+                <select name="status" class="textInput" style="float: left;margin-left: 0px;background-position: 100% -25px;width: 192px;">
+                    <option value="0" selected="selected">正常</option>
+                    <option value="1">锁定</option>
+                </select>
+            </p>
+        </div>
+        <div class="formBar commit">
+            <ul>
+                <li>
+                    <div class="buttonActive">
+                        <div class="buttonContent">
+                            <button type="submit">保存</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">取消</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

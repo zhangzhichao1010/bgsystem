@@ -1,0 +1,35 @@
+body, div, p, h1, h2, h3, h4, h5, h6, ul, li, dl, dd, dt, ol, img,font, table, form, input, button, textarea, select, option, a, strong, span { padding: 0; margin: 0; font-family: 'Microsoft Yahei', arial; font-size:14px; }
+.header{width: 100%; height: 138px; background: #fff}
+.header_in{width: 1060px; margin: 0 auto; height: 90px;  padding-top: 48px;}
+.header_in img{display: block;}
+.main { width: 100%; height: 100%; background: url(/static/public/images/bg.png) no-repeat center;min-height:600px}
+.footer{width: 100%; height: 250px; }
+.footer .footer_in{width: 1060px; margin: 0 auto; text-align: center; padding-top: 40px;}
+.login{width: 1060px; margin: 0 auto; overflow: hidden;}
+.login_in{width: 365px; height: 410px; background: #fff; float: right; margin-top: 70px; border-radius: 5px; padding: 0 40px; position: relative; z-index: 10}
+.title{width: 100%; height: 63px; line-height: 63px; font-size: 24px; color: #387ee7; border-bottom: #94c0d9 1px solid; font-weight: 700; margin-bottom: 20px;}
+.login_form .item{ width: 100%; }
+.login_form .item input{width:92%; line-height: 40px; height: 40px; border: 1px solid #aaaaaa; border-radius: 5px; padding-left: 30px;}
+.login_form .item .error_msg{width: 100%; line-height: 32px; height: 32px;}
+.login_form .item .error_msg span{color: red; font-size: 12px; margin-left: 30px}
+.login_form .username input{ background: url(/static/public/images/uname.png) no-repeat 10px center;}
+.login_form .password{ position: relative;}
+.login_form .password input{ background: url(/static/public/images/pwd.png) no-repeat 10px center;}
+.login_form .password .eye{ position: absolute; right: 6px; top: 10px; cursor: pointer; display: none}
+.login_form .yzm input{ background: url(/static/public/images/sr.png) no-repeat 10px center;}
+.login_form .yzm input{width: 186px;}
+.login_form .yzm .ewm_span{ margin-left: 6px;}
+.login_form  .submit input{width: 100%; height: 45px; line-height: 45px; background: #438eb9; color: #fff; font-size: 20px; border-radius: 5px; cursor:pointer}
+.login_in .forget_p{width: 100%; line-height: 40px; text-align: right;}
+.login_in .forget_p a{color: #333333; font-size: 18px;}
+img,button,input{border:0;}
+h1, h2, h3, h4, h5, h6 { font-weight: normal;}
+table { border-collapse: collapse;}
+table td{padding:5px; font-family: 'Microsoft Yahei', arial;}
+a, a:active { color: #333333; text-decoration: none; outline: none;}
+a:hover { color: #ce271f; outline: none;}
+ul, dl, li, dd, dt, ol { list-style: none;}
+input, select, img {vertical-align:middle;outline: none;}
+
+
+

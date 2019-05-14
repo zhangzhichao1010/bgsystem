@@ -1,0 +1,57 @@
+<div class="pageContent">
+    <form id="addNews" enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this, dialogAjaxDone)"
+          action="/manage/RolesController/saveAdmin" method="POST">
+        <div class="pageFormContent" layoutH="56">
+            <p>
+                <label>管理员账号：</label>
+                <input name="id" th:value="${admin?.id}" value="" type="hidden"/>
+                <input name="unitId" th:value="${unitId}" type="hidden" readonly="readonly"/>
+                <input name="unitname" th:value="${unitname}" type="hidden" readonly="readonly"/>
+                <input name="type" th:value="${type?:''}" type="hidden" readonly="readonly"/>
+                <input name="fid" th:value="${fid}" type="hidden" readonly="readonly"/>
+                <input name="adminname" type="text" size="30" value="" class="required" th:value="${admin}?${admin.adminname}:''"/>
+            </p>
+            <p>
+                <label>管理员姓名：</label>
+                <input name="realname" type="text" size="30" th:value="${admin}?${admin.realname}:''" class="text-input"/>
+            </p>
+            <p>
+                <label>管理员角色：</label>
+                <input name="roleIds" type="hidden" size="30" class="textInput required" th:value="${roleIds?:''}"/>
+                <input name="rolenames" type="text" size="30" class="textInput required" readonly="readonly" th:value="${roleNames?:''}">
+                <span style="position: absolute;margin-left: 24px; margin-top: 4px;width: 80px;">查看角色列表</span>
+                <a class="btnLook" th:href="@{/manage/RolesController/suggestRoles(unitId=${unitId},type=${type},fid=${fid})}" lookupgroup="" style="float: left; margin-right: -5px;margin-top: 0px;" rel="suggestAuth">查看权限列表</a>
+            </p>
+            <p>
+                <label>管理员密码：</label>
+                <input name="password" type="password" size="30" value="" class="text-input"/>
+            </p>
+            <p>
+                <label>管理员状态</label>
+                <select name="status" class="textInput" style="float: left;margin-left: 0px;background-position: 100% -25px;width: 192px;">
+                    <option value="0" selected="selected">正常</option>
+                    <option value="1">锁定</option>
+                </select>
+            </p>
+        </div>
+        <div class="formBar">
+            <ul>
+                <!--<li><a class="buttonActive" href="javascript:;"><span>保存</span></a></li>-->
+                <li>
+                    <div class="buttonActive">
+                        <div class="buttonContent">
+                            <button type="submit">保存</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">取消</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>服务评价</title>
+
+    <link rel="stylesheet" href="/static/front/css/reset.css">
+
+    <link rel="stylesheet" href="/static/front/css/selectFilter.css">
+    <link rel="stylesheet" href="/static/front/css/style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+<div class="editor_box">
+    <ul>
+        <li>
+            <div class="cloum_name " style="width: 1.5rem">
+                <span>办理评价：</span>
+            </div>
+            <div class="right_box">
+                <div class="screen_cell">
+                    <div class="filter-box screen_date">
+                        <div class="filter-text">
+                            <input class="filter-title" type="text" readonly placeholder="pleace select"
+                                   style="width: 120px;border: none"/>
+                            <i class="icon icon-filter-arrow"></i>
+                        </div>
+                        <select name="blpj" class="blpj">
+                            <option value="0">满意</option>
+                            <option value="1">基本满意</option>
+                            <option value="2">不满意</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="cloum_name " style="width: 1.5rem">
+                <span>反馈意见：</span>
+            </div>
+            <div class="right_box">
+                <textarea name="fkyj" class="fkyj" th:year="${year}" placeholder="" th:adviseId="${adviseId}"></textarea>
+            </div>
+        </li>
+
+    </ul>
+    <input type="submit" value="提交" onclick="submitData()">
+</div>
+</body>
+
+</html>
+
+
+<script src="/static/front/js/jquery-1.7.2.min.js"></script>
+<script src="/static/front/js/rem750.js"></script>
+<script src="/static/front/js/selectFilter.js"></script>
+<script src="/static/front/js/cookieutils.js"></script>
+<script>
+    $('.screen_date').selectFilter({
+        callBack: function (val) {
+        }
+    });
+
+    function submitData() {
+        var blpj = $(".blpj").val();
+        var fkyj = $(".fkyj").val();
+        var adviseId = $(".fkyj").attr("adviseId");
+        var year = $(".fkyj").attr("year");
+        var uid = getcookiebyname("uid");
+        var fid = getcookiebyname("fid");
+        if (!uid || !fid) return;
+        $.ajax({
+            type: "POST",
+            url: "/front/Advise/saveEvaluateAdvise",
+            data: {
+                'fkyj': fkyj,
+                'blpj': blpj,
+                'adviseId': adviseId,
+                'uid': uid,
+                'fid': fid
+            },
+            success: function (msg) {
+                if (msg == 200) {
+                    location.href = "/front/Advise/listAdvise?year=" + year;
+                } else {
+                    alert("提交失败！")
+                }
+            }
+
+        })
+    }
+</script>

@@ -1,0 +1,57 @@
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+    <form method="post" action="/manage/RolesController/suggestAuthority" onsubmit="return dialogSearch(this)" class="pageForm required-validate" id="pagerForm">
+        <input type="hidden" name="pageNum" th:value="${pageNum}"/>
+        <input type="hidden" name="numPerPage" th:value="${numPerPage}"/>
+        <input type="hidden" name="fid" th:value="${fid}"/>
+        <input type="hidden" name="unitId" th:value="${unitId?:''}"/>
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        权限名称：
+                        <input name="searchWord" th:value="${searchWord}"/>
+                    </td>
+                    <td>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">检索</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table class="table" layoutH="135" targetType="dialog" width="100%">
+        <thead>
+        <tr>
+            <th>权限名称</th>
+            <th>权限功能描述</th>
+            <th>选择带回</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vo:${pager.data}">
+            <td th:text="${vo.authorityname}"></td>
+            <td th:text="${vo.authorityDetail}"></td>
+            <td align="center"><a class="btnSelect" th:href="@{'javascript:$.bringBack({authId:\''+${vo.id}+'\',authorityname:\''+${vo.authorityname}+'\'})'}" title="查找带回">选择</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                <option ${numPerPage}=='10'?"selected='selected'":"" th:value="10">10</option>
+                <option ${numPerPage}=='20'?"selected='selected'":"" th:value="20">20</option>
+                <option ${numPerPage}=='50'?"selected='selected'":"" th:value="50">50</option>
+                <option ${numPerPage}=='100'?"selected='selected'":"" th:value="100">100</option>
+            </select>
+            <span th:text="'条，共'+${total}+'条'">条，共0条</span>
+        </div>
+        <div class="pagination" targetType="dialog" th:totalCount="${total}" th:numPerPage="${numPerPage}" th:pageNumShown="10"
+             th:currentPage="${pageNum}"></div>
+    </div>
+</div>

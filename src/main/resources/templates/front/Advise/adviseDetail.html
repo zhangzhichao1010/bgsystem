@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>建议详情页</title>
+
+    <link rel="stylesheet" href="/static/front/css/reset.css">
+    <link rel="stylesheet" href="/static/front/css/minirefresh.min.css">
+    <link rel="stylesheet" href="/static/front/css/style.css">
+
+</head>
+
+<body>
+<div class="suggest_info">
+    <h1 class="title" th:text="${advise?.title}">我是标题我是标题我题我是标题</h1>
+    <h2 class="date" th:text="${advise?.users?.uname}+'  '+${#dates.format(advise?.created,'yyyy-MM-dd HH:mm:ss')}">章跃进 2019-04-04 16:36:33</h2>
+    <h3>状态流程跟踪：
+
+        <a th:href="@{/front/Advise/auditDetail(adviseId=${advise?.id},year=${year})}" class="fr dsc" th:if="${advise?.aduitStatus eq 0}" th:text="待审查"></a>
+        <a th:href="@{/front/Advise/writeAdvise(adviseId=${advise?.id},year=${year})}" class="fr dsc" th:if="${advise?.isLock eq 0&&uid eq advise?.users?.uid}" th:text="修改"></a>
+        <a th:href="@{/front/Advise/auditDetail(adviseId=${advise?.id},year=${year})}" class="fr dsc" th:if="${advise?.aduitStatus eq 1}" th:text="不予接收"></a>
+        <a th:href="@{/front/Advise/auditDetail(adviseId=${advise?.id},year=${year})}" class="fr dsc" th:if="${advise?.aduitStatus eq 3}" th:text="交办中"></a>
+        <a th:href="@{/front/Advise/auditDetail(adviseId=${advise?.id},year=${year})}" class="fr dsc" th:if="${advise?.aduitStatus eq 4}" th:text="办理中"></a>
+        <a th:href="@{/front/Advise/evaluateAdvise(adviseId=${advise?.id},year=${year})}" class="fr dsc" th:if="${advise?.aduitStatus eq 5&&uid eq advise?.users?.uid}" th:text="评价"></a>
+        <a th:href="@{/front/Advise/auditDetail(adviseId=${advise?.id},year=${year})}" class="fr dsc" th:if="${advise?.aduitStatus eq 5}" th:text="已办理"></a>
+        <a th:href="@{/front/Advise/auditDetail(adviseId=${advise?.id},year=${year})}" class="fr dsc" th:if="${advise?.aduitStatus eq 6}" th:text="已评价"></a>
+        <!-- <a href="javascript:;" class="fr jbz">交办中</a>
+        <a href="javascript:;" class="fr blz">办理中</a>
+        <a href="javascript:;" class="fr bysl">不予接受</a>
+        <a href="javascript:;" class="fr ydf">已答复</a> -->
+
+        <!-- 已答复的建议显示评价反馈 -->
+        <!-- <a href="#" class="pjfk fr">评价反馈</a> -->
+        <!-- 不予接受显示重新提交按钮 -->
+        <!-- <a href="#" class="pjfk fr">重新提交</a> -->
+    </h3>
+    <div class="content" th:utext="${advise?.adviseContent?:''}">
+    </div>
+    <div class="fyr_box">
+        <label for="" class="fl">附议人：</label>
+        <div class="">
+            <span th:each="vo:${users}"><span th:text="${vo?:''}" style="padding-left: 0.2rem;"></span></span>
+        </div>
+    </div>
+    <!-- 已答复的建议显示答复结果 -->
+    <div class="reply_result" th:if="${advise?.aduitStatus eq 1}">
+        <h1>答复结果</h1>
+        <p th:text="'原因：'+${lastAuditData?.adviseDetail?:''}"></p>
+    </div>
+    <div class="reply_result" th:if="${advise?.aduitStatus eq 3}">
+        <h1>答复结果</h1>
+        <p th:text="'审核人：'+${lastAuditData?.auditname}"></p>
+        <p th:text="'审核时间：'+${#dates.format(lastAuditData?.updated,'yyyy-MM-dd')}"></p>
+        <p>审核通过</p>
+    </div>
+    <div class="reply_result" th:if="${advise?.aduitStatus eq 4}">
+        <h1>答复结果</h1>
+        <p th:text="'交办人：'+${advise?.jbrname}"></p>
+        <p th:text="'交办时间：'+${#dates.format(advise?.jbrCreated,'yyyy-MM-dd')}"></p>
+    </div>
+    <div class="reply_result" th:if="${advise?.aduitStatus gt 4}">
+        <h1>答复结果</h1>
+        <p th:text="'办理人：'+${advise?.finalAudit?.blr}"></p>
+        <p th:text="'办理部门：'+${advise?.finalAudit?.blbm}"></p>
+        <p th:text="'联系方式：'+${advise?.finalAudit?.lxfs}"></p>
+        <p th:text="'办理意见：'+${advise?.finalAudit?.blyj}"></p>
+        <p th:text="'办理时间：'+${#dates.format(advise?.finalAudit?.created,'yyyy-MM-dd')}"></p>
+    </div>
+
+    <!-- 不予接受时答复结果 -->
+    <!-- <div class="reply_result">
+        <h1>答复结果</h1>
+        <p>办理人：xxxxxxxxxxxx</p>
+    </div> -->
+</div>
+</body>
+
+</html>
+<script src="/static/front/js/jquery-1.7.2.min.js"></script>
+<script src="/static/front/js/rem750.js"></script>
+<script src="/static/front/js/minirefresh.min.js"></script>

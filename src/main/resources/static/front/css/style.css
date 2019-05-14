@@ -1,0 +1,720 @@
+/* 人大代表履职档案 */
+
+.contain {
+    padding: 0.25rem 0.15rem 0;
+    background: #fff;
+}
+
+ul.district_list {
+    overflow: hidden;
+}
+
+.district_list li {
+    float: left;
+    width: 2.1rem;
+    margin-bottom: 0.3rem
+}
+
+.district_list li:nth-child(3n-1) {
+    margin: 0 0.45rem;
+}
+
+.district_list li .district_logo {
+    height: 1.21rem;
+    display: flex;
+    background: #f5f5f5;
+    text-align: center;
+    align-items: center;
+    justify-content: center
+}
+
+.district_list li .district_logo img {
+    width: 0.75rem;
+    height: 0.62rem
+}
+
+.district_list li p {
+    font-size: 0.26rem;
+    text-align: center;
+    margin-top: 0.05rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* 人大代表档案列表 */
+.sear_box {
+    padding: 0.2rem 0.27rem;
+    border-bottom: 0.1rem solid #f5f5f5;
+    line-height: 0.68rem
+}
+
+.sear_box .search {
+    line-height: 0.68rem;
+    height: 0.68rem;
+    border: #d13019 0.01rem solid;
+    border-radius: 0.68rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 0.2rem;
+}
+
+.sear_box .search form {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 0.2rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.sear_box .search input[type="text"] {
+    flex: 1;
+    font-size: 0.26rem;
+    color: #bbbaba
+}
+
+.sear_box .search input[type="submit"] {
+    width: 0.28rem;
+  /*  height: 0.28rem;*/
+    border: none;
+    background: url(../images/sear_icon.png) no-repeat center center;
+    background-size: 100% 100%;
+    font-size: 0.26rem;
+    margin-left: 0.2rem
+}
+
+.user_list {
+    position: fixed;
+    left: 0;
+    top: 1.18rem;
+    bottom: 0;
+    right: 0;
+}
+
+.user_list ul {
+    padding: 0 0.15rem;
+}
+
+.user_list li {
+    line-height: 0.9rem;
+    border-bottom: #f5f5f5 0.01rem solid
+}
+
+.user_list li span {
+    font-size: 0.26rem
+}
+
+.user_list li span.user_logo {
+    display: inline-block;
+    width: 0.68rem;
+    height: 0.68rem;
+    border-radius: 50%;
+    background: #f5f5f5;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    margin-right: 0.2rem
+}
+
+.user_list li span.user_logo img {
+    width: 0.28rem;
+    height: 0.34rem;
+}
+
+/* 人大代表档案详情 */
+.lzda_info .personage_msg {
+    background: url(../images/bg1.png) no-repeat center top;
+    background-size: 100% 2.61rem;
+}
+
+.lzda_info .personage_msg p {
+    text-align: center;
+    font-size: 0.28rem;
+    color: #fff;
+}
+
+.lzda_info .personage_msg span.personal_tx {
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border-radius: 50%;
+    background: #d0d0d0;
+    text-align: center;
+    margin: 0.3rem 0 0.15rem
+}
+
+.lzda_info .personage_msg span.personal_tx img {
+    width: 0.53rem;
+    height: 0.62rem;
+    vertical-align: middle
+}
+
+.lzda_info .person_core {
+    padding: 0.2rem 0.15rem 0;
+    overflow: hidden;
+}
+
+.lzda_info .person_core .core_box,
+.lzda_info .person_core .evaluate_box {
+    width: 3.5rem;
+    height: 1.86rem;
+    background: #fff;
+    box-shadow: 0 0 0.1rem rgba(136, 34, 33, 0.13);
+    border: #e7dbd5 solid 0.01rem;
+    border-radius: 0.1rem;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 0.25rem
+}
+
+.lzda_info .person_core p {
+    font-size: 0.28rem;
+    color: #333;
+    margin-top: 0.2rem
+}
+
+.lzda_info .person_core p font {
+    font-size: 0.42rem;
+    color: #d2321a
+}
+
+.lzda_info .link_list {
+    padding: 0.2rem 0.15rem 0;
+}
+
+.lzda_info .link_list li {
+    padding: 0 0.2rem 0 0.1rem;
+    line-height: 0.7rem;
+    border-top: #ebebeb 0.01rem dashed;
+
+}
+
+.lzda_info .link_list li a {
+    display: block;
+    overflow: hidden;
+    background: url(../images/right_icon.png) no-repeat right center;
+    background-size: 0.12rem 0.22rem;
+}
+
+.lzda_info .link_list li span.title {
+    font-size: 0.26rem;
+}
+
+.lzda_info .link_list li span.core {
+    font-size: 0.24rem;
+    color: #d2321a;
+    margin-right: 0.3rem
+}
+
+
+
+/* 人大活动列表 */
+.active_list {
+    position: fixed;
+    left: 0;
+    top: 1.18rem;
+    bottom: 0;
+    right: 0;
+}
+
+.active_list ul {
+    padding: 0 0.15rem;
+}
+
+.active_list ul li {
+    padding: 0.2rem 0;
+    overflow: hidden;
+}
+
+.active_list ul li .active_logo {
+    width: 1.39rem;
+    height: 1.13rem;
+    background: url(../images/active_icon.png) no-repeat center center;
+    background-size: 100% 100%;
+    margin-right: 0.2rem;
+}
+
+.active_list ul li a.title {
+    font-size: 0.28rem
+}
+
+.active_list ul li dd.date {
+    font-size: 0.24rem;
+    color: #999
+}
+
+.active_list ul li dt {
+    margin-bottom: 0.05rem
+}
+
+.active_list ul li dt a {
+    font-size: 0.26rem;
+}
+
+.active_list ul li dt a font {
+    color: #d1301a
+}
+
+/* 人大活动详情 */
+.active_info {
+    padding: 0 0.15rem;
+}
+
+.active_info h1.title {
+    text-align: center;
+    font-size: 0.3rem;
+    font-weight: bold;
+    line-height: 0.6rem
+}
+
+.active_info h2.date {
+    text-align: center;
+    font-size: 0.24rem;
+    color: #999;
+    margin-bottom: 0.4rem
+}
+
+.active_info p {
+    font-size: 0.24rem;
+    color: #999;
+    text-indent: 2em;
+    line-height: 0.4rem;
+    margin-bottom: 0.1rem
+}
+
+.active_info p img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+/* 建议详情页 */
+
+.suggest_info {
+    padding: 0 0.15rem;
+}
+
+.suggest_info h1.title {
+    text-align: center;
+    font-size: 0.3rem;
+    font-weight: bold;
+    line-height: 0.6rem
+}
+
+.suggest_info h2.date {
+    text-align: center;
+    font-size: 0.24rem;
+    color: #999;
+    margin-bottom: 0.4rem
+}
+
+.suggest_info h3 {
+    font-size: 0.3rem;
+    font-weight: bold;
+    margin-bottom: 0.15rem
+}
+
+.suggest_info h3 a {
+    display: inline-block;
+    line-height: 0.5rem;
+    padding: 0 0.2rem;
+    border-radius: 0.1rem;
+    font-size: 0.3rem;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 0.1rem
+}
+
+.suggest_info h3 a.pjfk {
+    color: #d1301a;
+    border: none;
+    font-weight: 100
+}
+
+.suggest_info h3 a.dsc {
+    background: #f5af16
+}
+
+.suggest_info h3 a.jbz {
+    background: #1b923b
+}
+
+.suggest_info h3 a.blz {
+    background: #ba9f19
+}
+
+.suggest_info h3 a.byjs {
+    background: #d1301a
+}
+
+.suggest_info h3 a.ydf {
+    background: #2a71b9
+}
+
+.suggest_info p {
+    font-size: 0.24rem;
+    text-indent: 2em;
+    line-height: 0.4rem;
+    margin-bottom: 0.1rem
+}
+
+.suggest_info .fyr_box {
+    padding-top: 0.1rem;
+    border-top: #ebebeb 0.01rem solid;
+}
+
+.suggest_info .fyr_box label,
+.suggest_info .fyr_box span {
+    font-size: 0.24rem;
+    color: #999
+}
+
+.suggest_info .reply_result {
+    margin-top: 0.6rem;
+    margin-bottom: 0.3rem
+}
+
+.suggest_info .reply_result h1 {
+    font-size: 0.3rem;
+    text-align: center
+}
+
+.suggest_info .reply_result p {
+    font-size: 0.24rem;
+    line-height: 0.3rem
+}
+
+
+/* 办理流程跟踪 */
+.processTrace {
+    padding: 0.35rem 0.15rem 0;
+}
+
+.processTrace li {
+    overflow: hidden;
+}
+
+.processTrace .date_box {
+    width: 1.5rem;
+    text-align: right
+}
+
+.processTrace .icon_box {
+    width: 0.5rem;
+    height: 1.57rem;
+    margin: 0 0.05rem
+}
+
+.processTrace .icon_box span.icon {
+    display: block;
+    margin: 0 auto;
+    border-left: #999 0.01rem dashed;
+    width: 0.01rem;
+    height: 100%;
+    position: relative;
+}
+
+.processTrace .icon_box span.start_icon {
+    border: none
+}
+
+.processTrace .icon_box span.icon:before {
+    content: '';
+    width: 0.28rem;
+    height: 0.28rem;
+    border-radius: 50%;
+    background: #d1301a;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%)
+}
+
+.processTrace .trace_info dl {
+    width: 5rem;
+    background: #fff;
+    box-shadow: 0 0 0.1rem rgba(136, 34, 33, 0.13);
+    padding: 0.2rem;
+    box-sizing: border-box
+}
+
+.processTrace .trace_info dt {
+    overflow: hidden;
+    margin-bottom: 0.1rem
+}
+
+.processTrace .trace_info dl span {
+    font-size: 0.24rem;
+}
+
+.processTrace .trace_info dd {
+    color: #999
+}
+
+.processTrace .trace_info dl span.state {
+    font-weight: 700
+}
+
+.processTrace .trace_info dl span.time {
+    padding-left: 0.3rem;
+    background: url(../images/time_icon.png) no-repeat left center;
+    background-size: 0.24rem 0.23rem;
+}
+
+.processTrace li.current_node .icon_box span.icon:before {
+    width: 0.42rem;
+    height: 0.42rem
+}
+
+.processTrace li.current_node .icon_box span.icon {
+    border-color: #d1301a
+}
+
+.processTrace li.current_node .trace_info dl span.state {
+    color: #d1301a
+}
+
+/* 写建议 */
+.editor_box {
+    padding: 0.4rem;
+}
+
+.editor_box li {
+    display: flex;
+    margin-bottom: 0.48rem
+}
+
+.editor_box ul.filter-list li {
+    margin-bottom: 0
+}
+
+.editor_box li .cloum_name {
+    width: 1.2rem;
+    text-align: right
+}
+
+.editor_box li .cloum_name span {
+    display: inline-block;
+    line-height: 0.5rem;
+    font-size: 0.28rem
+}
+
+.editor_box li .right_box {
+    flex: 1
+}
+
+.editor_box li .right_box input[type="text"] {
+    border: #ddd 0.01rem solid;
+    height: 0.5rem;
+    width: 100%;
+    font-size: 0.24rem;
+    color: #999;
+    padding: 0 0.1rem;
+    box-sizing: border-box
+}
+
+.editor_box li .right_box textarea {
+    border: #ddd 0.01rem solid;
+    height: 4.38rem;
+    width: 100%;
+    font-size: 0.24rem;
+    color: #999;
+    padding: 0.1rem;
+    box-sizing: border-box;
+    resize: none
+}
+
+.editor_box li .add_fyr span {
+    display: inline-block;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    border: #ebebeb 0.01rem solid;
+    border-radius: 0.1rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+    padding: 0 0.3rem;
+    position: relative;
+}
+
+.editor_box a.add_btn {
+    display: inline-block;
+    width: 0.44rem;
+    height: 0.44rem;
+    background: url(../images/add_icon.png) no-repeat center center;
+    background-size: 100% 100%;
+    vertical-align: middle
+}
+
+.editor_box li .add_fyr span i {
+    position: absolute;
+    right: -0.06rem;
+    top: -0.06rem;
+    width: 0.12rem;
+    height: 0.12rem;
+    background: url(../images/close_icon.png) no-repeat center center;
+    background-size: 100% 100%
+}
+
+.editor_box input[type="submit"] {
+    width: 2rem;
+    height: 0.8rem;
+    border-radius: 0.1rem;
+    background: #d1301a;
+    color: #fff;
+    border: none;
+    font-size: 0.28rem;
+    display: block;
+    margin: 0.2rem auto;
+}
+
+
+/* 建议办理列表 */
+
+.sear_box a.suggest,
+.sear_box span.filter {
+    font-size: 0.26rem;
+    margin-right: 0.2rem
+}
+
+.sear_box span.filter {
+    padding-right: 0.35rem;
+    background: url(../images/icon_arrow_down.png) no-repeat right center;
+    background-size: 0.23rem 0.12rem
+}
+
+.sear_box span.filtered {
+    background: url(../images/icon_arrow_up.png) no-repeat right center;
+    background-size: 0.23rem 0.12rem
+}
+
+.suggest_list {
+    position: fixed;
+    left: 0;
+    top: 1.18rem;
+    bottom: 0;
+    right: 0;
+}
+
+.suggest_list ul {
+    padding: 0 0.15rem;
+}
+
+.suggest_list ul li {
+    padding: 0.2rem 0;
+    overflow: hidden;
+}
+
+.suggest_list ul li .suggest_icon {
+    width: 1.39rem;
+    height: 1.13rem;
+    background: url(../images/suggest_icon.png) no-repeat center center;
+    background-size: 100% 100%;
+    margin-right: 0.2rem;
+}
+
+.suggest_list ul li a.title {
+    font-size: 0.28rem
+}
+
+.suggest_list ul li dd.date {
+    font-size: 0.24rem;
+    color: #999;
+    overflow: hidden;
+}
+
+.suggest_list ul li dd.date span.status {
+    font-size: 0.24rem
+}
+
+.suggest_list ul li dd.date span.dsc {
+    color: #f5af16
+}
+
+.suggest_list ul li dd.date span.jbz {
+    color: #1b923b
+}
+
+.suggest_list ul li dd.date span.blz {
+    color: #ba9f19
+}
+
+.suggest_list ul li dd.date span.byjs {
+    color: #d1301a
+}
+
+.suggest_list ul li dd.date span.ydf {
+    color: #2a71b9
+}
+
+.suggest_list ul li dt {
+    margin-bottom: 0.05REM;
+    font-weight:800
+}
+
+.pop_filter {
+    position: fixed;
+    background: rgba(47, 47, 47, 0.23);
+    left: 0;
+    top: 1.1rem;
+    right: 0;
+    bottom: 0;
+    display: none
+}
+
+.pop_filter .filter_box {
+    padding: 0 0.15rem;
+    background: #fff;
+    border-top: #c3bebb 0.01rem solid;
+    display: none
+}
+
+.pop_filter .filter_box .filter_item h1 {
+    line-height: 0.67rem;
+    border-bottom: #ddd 0.01rem solid;
+    margin-bottom: 0.2rem
+}
+
+.pop_filter .filter_box .filter_item h1 span {
+    font-size: 0.28rem;
+    font-weight: bold;
+    padding-left: 0.2rem;
+    border-left: #d1301a 0.1rem solid
+}
+
+.pop_filter .filter_box .filter_item .classify span {
+    display: inline-block;
+    line-height: 0.4rem;
+    padding: 0 0.2rem;
+    border-radius: 0.1rem;
+    font-size: 0.26rem;
+    border: #d0d0d0 0.01rem solid;
+    margin: 0 0.1rem;
+    margin-bottom: 0.25rem
+}
+
+.pop_filter .filter_box .filter_item .classify span.cur {
+    background: #d1301a;
+    border: #d1301a 0.01rem solid;
+    color: #fff;
+}
+
+.pop_filter .filter_box .control_box {
+    text-align: center;
+}
+
+.pop_filter .filter_box .control_box span {
+    display: inline-block;
+    width: 1.5rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    text-align: center;
+    color: #fff;
+    background: #d1301a;
+    border-radius: 0.1rem;
+    font-size: 0.26rem;
+    margin: 0.5rem
+}

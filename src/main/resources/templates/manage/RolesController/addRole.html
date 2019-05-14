@@ -1,0 +1,46 @@
+<div class="pageContent">
+    <form id="addNews" enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this, dialogAjaxDone)"
+          action="/manage/RolesController/saveRole" method="POST">
+        <div class="pageFormContent" layoutH="56">
+            <p>
+                <label>角色名称：</label>
+                <input name="id" th:value="${role}?${role.id}:''" value="" type="hidden"/>
+                <input name="unitId" th:value="${unitId}" type="hidden" readonly="readonly"/>
+                <input name="unitname" th:value="${unitname}" type="hidden" readonly="readonly"/>
+                <input name="fid" th:value="${fid}" type="hidden" readonly="readonly"/>
+                <input name="rolename" type="text" size="30" value="" class="required" th:value="${role}?${role.rolename}:''"/>
+            </p>
+            <p>
+                <label>角色权限：</label>
+                <input name="authId" type="hidden" size="30" class="textInput required" value="" th:value="${role}?${role.authority.id}:''" readonly="readonly"/>
+                <input name="authorityname" type="text" size="30" class="textInput required" value="" th:value="${role}?${role.authority.authorityname}:''" readonly="readonly">
+                <span style="position: absolute;margin-left: 24px; margin-top: 4px;width: 80px;">查看权限列表</span>
+                <a class="btnLook" th:href="@{/manage/RolesController/suggestAuthority(unitId=${unitId})}" lookupgroup="" style="float: left; margin-right: -5px;margin-top: 0px;" rel="suggestAuth">查看权限列表</a>
+            </p>
+            <p>
+                <label>角色简介：</label>
+                <textarea name="roleDetail" type="text" size="30" value="" class="textInput" th:text="${role}?${role.roleDetail}:''"></textarea>
+            </p>
+
+        </div>
+        <div class="formBar">
+            <ul>
+                <!--<li><a class="buttonActive" href="javascript:;"><span>保存</span></a></li>-->
+                <li>
+                    <div class="buttonActive">
+                        <div class="buttonContent">
+                            <button type="submit">保存</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" class="close">取消</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>

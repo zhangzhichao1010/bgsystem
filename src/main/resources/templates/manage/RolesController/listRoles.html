@@ -1,0 +1,73 @@
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+    <form id="pagerForm" method="post" action="/manage/RolesController/listRoles" onsubmit="return navTabSearch(this);">
+        <input type="hidden" name="pageNum" th:value="*{pageNum}"/>
+        <input type="hidden" name="numPerPage" th:value="*{numPerPage}"/>
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        角色名称：<input type="text" name="searchWord" th:value="${searchWord}"/>
+                    </td>
+                    <td>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">检索</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+
+<div class="pageContent" style="border-left:1px #B8D0D6 solid;border-right:1px #B8D0D6 solid;">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li class="verify" authority="kmhz-1"><a target="dialog" th:href="'/manage/RolesController/addRole?unitId='+${unitId}+'&unitname='+${unitname}+'&fid='+${fid}" class="add"
+                            width="576" height="580" mask="true" checked="true" fresh="true" rel="addRole"><span>添加</span></a>
+            </li>
+            <li  class="verify" authority="kmhz-3"><a title="确定要删除吗?" th:href="'/manage/RolesController/delRole?unitId='+${unitId}+'&type='+${type}+'&unitname='+${unitname}+'&fid='+${fid}" warn="请选择数据"
+                            class="delete" rel="ids" target="selectedTodo"><span>删除</span></a></li>
+            <li class="verify" authority="kmhz-2"><a target="dialog" href="/manage/RolesController/editRole?id={adminId}" warn="请选择数据"
+                            width="576" height="580" checked="true" mask="true" fresh="true" class="edit" rel="editRole"><span>修改</span></a></li>
+            <li class="line">line</li>
+            <!-- <li class="ytru-4">
+                 <a onclick="sortOrder43('order')" id="sort43" style="background: url(/public/images/order1.png) no-repeat left 0px;height: 26px;width: 73px;margin-top: 0px;margin-left: -5px;"></a>
+             </li>-->
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="135" style="text-align: center">
+        <thead>
+        <tr>
+            <th align="center"><input type="checkbox" group="ids" class="checkboxCtrl"></th>
+            <th>角色名称</th>
+            <th>角色功能描述</th>
+            <th>添加时间</th>
+            <!--<th>操作</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vo,iterStat : ${pager.data}" target="adminId" th:rel="${vo?.id}" class="orderTR1">
+            <td align="center"><input name="ids" th:value="${vo?.id}" type="checkbox"></td>
+            <td th:text="${vo.rolename}"></td>
+            <td th:text="${vo.roleDetail}"></td>
+            <td th:text="${#dates.format(vo?.created, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                <option value="20" th:selected="${numPerPage eq 100}">20</option>
+                <option value="50" th:selected="${numPerPage eq 100}">50</option>
+                <option value="100" th:selected="${numPerPage eq 100}">100</option>
+                <option value="200" th:selected="${numPerPage eq 200}">200</option>
+            </select>
+            <span th:text="'条，'+${total}+'条'"><!--共${total}--></span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="${total}" numPerPage="${numPerPage}"
+             pageNumShown="10" currentPage="${pageNum}"></div>
+    </div>
+</div>

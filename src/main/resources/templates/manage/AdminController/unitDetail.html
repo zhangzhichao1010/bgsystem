@@ -1,0 +1,26 @@
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+</div>
+<div class="pageContent" style="border-left:1px #B8D0D6 solid;border-right:1px #B8D0D6 solid;">
+    <table class="table" width="100%" layoutH="135" style="text-align: center">
+        <thead>
+        <tr>
+            <th th:if="${type eq 1}">学校名称</th>
+            <th th:if="${type eq 2}">机构名称</th>
+            <th th:if="${type eq 3}">社团名称</th>
+            <th th:if="${type eq 1}">学校电话</th>
+            <th th:if="${type eq 2}">机构电话</th>
+            <th th:if="${type eq 3}">社团电话</th>
+            <th th:if="${type eq 1}">学校地址</th>
+            <th th:if="${type eq 2}">机构地址</th>
+            <th th:if="${type eq 3}">社团地址</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${data?.name}"></td>
+            <td th:text="${data?.phoneNum}"></td>
+            <td th:text="${data?.address}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

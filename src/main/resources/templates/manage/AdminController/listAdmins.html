@@ -1,0 +1,82 @@
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+    <form id="pagerForm" method="post" th:action="@{/manage/AdminController/listAdmins}" onsubmit="return navTabSearch(this);">
+        <input type="hidden" name="pageNum" th:value="*{pageNum}"/>
+        <input type="hidden" name="numPerPage" th:value="*{numPerPage}"/>
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        管理员名称：<input type="text" name="searchWord" th:value="${searchWord}"/>
+                    </td>
+                    <td>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">检索</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+
+<div class="pageContent" style="border-left:1px #B8D0D6 solid;border-right:1px #B8D0D6 solid;">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <!-- <li class=""><a target="dialog" th:href="@{/manage/AdminController/addAdmin}" class="add"
+                             width="576" height="580" mask="true" checked="true" fresh="true" rel="addAdmin0"><span>添加</span></a>-->
+            </li>
+            <li class="verify" authority="wred-3"><a title="确定要删除吗?" th:href="@{/manage/AdminController/delAdmin}" warn="请选择数据"
+                            class="delete" rel="ids" target="selectedTodo"><span>删除</span></a></li>
+            <li class="verify" authority="wred-2"><a target="dialog" th:href="@{'/manage/AdminController/editAdmin?id={adminId}'}" warn="请选择数据"
+                            width="576" height="580" checked="true" mask="true" fresh="true" class="edit" rel="editAdmin0"><span>修改</span></a></li>
+            <li class="line">line</li>
+            <!-- <li class="ytru-4">
+                 <a onclick="sortOrder43('order')" id="sort43" style="background: url(/public/images/order1.png) no-repeat left 0px;height: 26px;width: 73px;margin-top: 0px;margin-left: -5px;"></a>
+             </li>-->
+        </ul>
+    </div>
+    <table class="table" width="100%" layoutH="135" style="text-align: center">
+        <thead>
+        <tr>
+            <th align="center"><input type="checkbox" group="ids" class="checkboxCtrl"></th>
+            <th>管理员姓名</th>
+            <th>管理员类型</th>
+            <th>管理员单位</th>
+            <th>状态</th>
+            <th>添加时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vo:${pager.data}" target="adminId" th:rel="${vo?.id}" class="orderTR1">
+            <td align="center"><input name="ids" th:value="${vo?.id}" type="checkbox"></td>
+            <td th:text="${vo.adminname}"></td>
+            <td th:if="${vo.type==1}" th:text="单位管理员"></td>
+            <td th:if="${vo.type==255}" th:text="超级管理员"></td>
+            <td th:text="${vo.unitname}"></td>
+            <td th:if="${vo.status==0}">正常</td>
+            <td th:if="${vo.status==1}">锁定</td>
+            <td th:text="${#dates.format(vo?.created, 'yyyy-MM-dd HH:mm:ss')}"></td>
+            <td>
+                <a target="dialog" rel="adminRoles" th:href="@{/manage/AdminController/listRoles(id=${vo.id})}">查看角色</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                <option value="20" th:selected="${numPerPage==20?:'selected'?:''}">20</option>
+                <option value="50" th:selected="${numPerPage==50?:'selected'?:''}">50</option>
+                <option value="100" th:selected="${numPerPage==100?:'selected'?:''}">100</option>
+                <option value="200" th:selected="${numPerPage==200?:'selected'?:''}">200</option>
+            </select>
+            <span th:text="'条，'+${total}+'条'"><!--共${total}--></span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="${total}" numPerPage="${numPerPage}"
+             pageNumShown="10" currentPage="${pageNum}"></div>
+    </div>
+</div>

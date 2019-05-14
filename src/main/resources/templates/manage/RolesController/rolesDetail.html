@@ -1,0 +1,34 @@
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+</div>
+<div class="pageContent" style="border-left:1px #B8D0D6 solid;border-right:1px #B8D0D6 solid;">
+    <table class="table" width="100%" layoutH="135" style="text-align: center">
+        <thead>
+        <tr>
+            <th>角色名称</th>
+            <th>角色功能描述</th>
+            <th>添加时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vo:${pager.data}" target="adminId" th:rel="${vo?.id}" class="orderTR1">
+            <td th:text="${vo?.rolename}"></td>
+            <td th:text="${vo?.roleDetail}"></td>
+            <td th:text="${#dates.format(vo?.created, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                <option value="20" th:selected="${numPerPage eq 100}">20</option>
+                <option value="50" th:selected="${numPerPage eq 100}">50</option>
+                <option value="100" th:selected="${numPerPage eq 100}">100</option>
+                <option value="200" th:selected="${numPerPage eq 200}">200</option>
+            </select>
+            <span th:text="'条，'+${total}+'条'"><!--共${total}--></span>
+        </div>
+        <div class="pagination" targetType="navTab" totalCount="${total}" numPerPage="${numPerPage}"
+             pageNumShown="10" currentPage="${pageNum}"></div>
+    </div>
+</div>

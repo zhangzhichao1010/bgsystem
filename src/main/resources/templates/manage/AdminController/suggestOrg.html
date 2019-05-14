@@ -1,0 +1,53 @@
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+    <form method="post" action="/manage/SchoolsController/suggestAuthority" onsubmit="return dialogSearch(this)" class="pageForm required-validate" id="pagerForm">
+        <input type="hidden" name="pageNum" th:value="${pageNum}"/>
+        <input type="hidden" name="numPerPage" th:value="${numPerPage}"/>
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td>
+                        组织名称：
+                        <input name="searchWord" th:value="${searchWord}"/>
+                    </td>
+                    <td>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">检索</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table class="table" layoutH="135" targetType="dialog" width="100%">
+        <thead>
+        <tr>
+            <th>组织名称</th>
+            <th>选择带回</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vo:${pager.data}">
+            <td th:text="${vo.name}"></td>
+            <td align="center"><a style="margin-left: 50%;" class="btnSelect" th:href="@{'javascript:$.bringBack({orgId:\''+${vo.id}+'\',name:\''+${vo.name}+'\'})'}" title="查找带回">选择</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="navTabPageBreak({numPerPage:this.value})">
+                <option ${numPerPage}=='10'?"selected='selected'":"" th:value="10">10</option>
+                <option ${numPerPage}=='20'?"selected='selected'":"" th:value="20">20</option>
+                <option ${numPerPage}=='50'?"selected='selected'":"" th:value="50">50</option>
+                <option ${numPerPage}=='100'?"selected='selected'":"" th:value="100">100</option>
+            </select>
+            <span>条，共${total}条</span>
+        </div>
+        <div class="pagination" targetType="dialog" totalCount="${total}" numPerPage="${numPerPage}" pageNumShown="10"
+             currentPage="${pageNum}"></div>
+    </div>
+</div>

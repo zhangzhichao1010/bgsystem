@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>活动列表</title>
+
+    <link rel="stylesheet" href="/static/front/css/reset.css">
+    <link rel="stylesheet" href="/static/front/css/minirefresh.min.css">
+    <link rel="stylesheet" href="/static/front/css/style.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div class="sear_box">
+        <div class="search">
+            <form action="" th:action=${"/front/activity/form"}>
+
+                <input type="hidden" name="userId" th:value="${userId}">
+                <input type="hidden" name="classifyId" th:value="${classifyId}">
+                <input type="hidden" name="year" th:value="${year}">
+
+
+                <input type="text" placeholder="请输入捜索内容" name="searchword" th:value="${searchword}">
+                <input type="submit" value="">
+            </form>
+        </div>
+    </div>
+    <div class="active_list">
+        <div id='minirefresh' class='minirefresh-wrap'>
+            <div class='minirefresh-scroll'>
+                <ul class="listdata">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<script src="/static/front/js/jquery-1.7.2.min.js"></script>
+<script src="/static/front/js/rem750.js"></script>
+<script src="/static/front/js/minirefresh.min.js"></script>
+
+<script>
+    //上拉加载
+
+
+    var size = 10;
+    var page = 0;
+    var miniRefreshArr;
+
+
+    init('/front/activity/')
+
+    function init(url) {
+        miniRefreshArr = new MiniRefresh({
+            container: '#minirefresh',
+            down: {
+                callback: function () {
+                    doAjax('down', url);
+                }
+            },
+            up: {
+                isAuto: true,
+                callback: function () {
+                    doAjax('up', url);
+                }
+            }
+        })
+    }
+
+
+    function doAjax(downOrUp, url) {
+
+        var tmp  = '[[${url}]]' ;
+
+        if (downOrUp == "down") {
+            page = 1;
+        } else {
+            page++;
+        }
+        $.ajax({
+            url: url +  tmp +  '&pageNum=' + page + '&numPerPage=' + size,
+            type: 'GET',
+            success: function (response) {
+                var length = response.length;
+                if (length > 0) {
+                    var html = "";
+                    for (var i = 0; i < length; i++) {
+                        html += '<li>';
+                        html += '<div class="active_logo fl"></div>'
+                        html += '<dl>'
+                        html += '<dt><a href="/front/activity/' +  response[i].id + '/detail">' + response[i].activityName + '</a></dt>'
+                        html += '<dd class="date">' + response[i].created + '</dd>'
+                        html += "</dl>"
+                        html += '</li>';
+                    }
+                    if (downOrUp == "down") {
+                        setTimeout(function () {
+                            $('.listdata').html();
+                            $('.listdata').html(html)
+                            miniRefreshArr.endDownLoading(true); // 结束下拉刷新
+                        }, 1000)
+                    } else {
+                        setTimeout(function () {
+                            $('.listdata').append(html);
+                            miniRefreshArr.endUpLoading(false);
+                        }, 1000)
+                    }
+                } else {
+                    if (downOrUp == 'down') {
+                        $('.listdata').html('');
+                        miniRefreshArr.endDownLoading(true);
+                    } else {
+                        miniRefreshArr.endUpLoading(true);
+                    }
+
+                }
+
+            }
+        })
+    }
+</script>

@@ -1,0 +1,244 @@
+<style type="text/css">
+    .container {
+        float: left;
+        display: block;
+        overflow: auto;
+        border: solid 1px #CCC;
+        line-height: 21px;
+        background: #FFF;
+        width: 1000px;
+        height: 360px;
+        margin-left: 11%;
+        margin-top: -2%;
+    }
+
+    .accordionContent {
+        height: 570px;
+        overflow-y: scroll;
+        width: 1010px;
+    }
+
+    .turnLeft {
+        float: left;
+        width: 20%;
+        margin-top: 6%;
+    }
+
+    .commit {
+        float: right;
+        margin-right: 14%;
+        width: 20%;
+        margin-top: 20px;
+    }
+</style>
+<div class="pageContent">
+    <form method="post" action="/manage/AuthorityController/saveAuthority" enctype="multipart/form-data"
+          class="pageForm required-validate" onsubmit="return iframeCallback(this, navTabAjaxDone)">
+        <div class="pageFormContent">
+            <p>
+                <label>权限名称：</label>
+                <input name="id" th:value="${authority}?${authority.id}:''" value="" type="hidden"/>
+                <input name="authorityname" type="text" size="30" value="" class="required"
+                       th:value="${authority}?${authority.authorityname}:''"/>
+            </p>
+            <p style="margin-left: 10%;">
+                <label>权限功能简介：</label>
+                <textarea name="authorityDetail" type="text" size="30" value="" class="textInput"
+                          th:text="${authority}?${authority.authorityDetail}:''"></textarea>
+            </p>
+            <p style="float: none;margin-top: 6%;">
+                <label>权限列表：</label>
+            <div class="container" th:value="${authority}?${authority.authorityList}:''">
+                <div class="accordionContent">
+                    <ul class="tree treeFolder treeCheck" overflow="scroll" style="margin-top: 2%;margin-left: 2%;">
+                        <li class="turnLeft">
+                            <a tname="authorityList" tvalue="htgr">代表管理</a>
+                            <ul>
+                                <li><a tname="authorityList" tvalue="rthw">代表管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="rthw-1">添加</a></li>
+                                        <li><a tname="authorityList" tvalue="rthw-2">修改</a></li>
+                                        <li><a tname="authorityList" tvalue="rthw-3">删除</a></li>
+                                        <li><a tname="authorityList" tvalue="rthw-4">导入excel</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="turnLeft">
+                            <a tname="authorityList" tvalue="nfgh">代表履职管理</a>
+                            <ul>
+                                <li><a tname="authorityList" tvalue="dsfg">履职登记管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="dsfg-1">添加</a></li>
+                                        <li><a tname="authorityList" tvalue="dsfg-2">修改</a></li>
+                                        <li><a tname="authorityList" tvalue="dsfg-3">删除</a></li>
+                                        <li><a tname="authorityList" tvalue="dsfg-4">参与代表管理</a>
+                                            <ul>
+                                                <li><a tname="authorityList" tvalue="lghy">代表添加</a></li>
+                                                <li><a tname="authorityList" tvalue="tdhj">代表删除</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a tname="authorityList" tvalue="fsdd">履职分类管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="fsdd-1">添加</a></li>
+                                        <li><a tname="authorityList" tvalue="fsdd-2">修改</a></li>
+                                        <li><a tname="authorityList" tvalue="fsdd-3">删除</a></li>
+                                    </ul>
+                                </li>
+                                <li><a tname="authorityList" tvalue="yuii">履职评价管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="yuii-1">添加</a></li>
+                                        <li><a tname="authorityList" tvalue="yuii-2">修改</a></li>
+                                        <li><a tname="authorityList" tvalue="yuii-3">删除</a></li>
+                                    </ul>
+                                </li>
+                                <li><a tname="authorityList" tvalue="wrqq">履职信息统计</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="wrqq-1">导出excel</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="turnLeft">
+                            <a tname="authorityList" tvalue="mghm">代表建议管理</a>
+                            <ul>
+                                <li><a tname="authorityList" tvalue="xvcx">建议审查管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="xvcx-1">批量提交交办人</a></li>
+                                        <li><a tname="authorityList" tvalue="xvcx-2">导出excel</a></li>
+                                        <li><a tname="authorityList" tvalue="xvcx-3">审核</a></li>
+                                        <li><a tname="authorityList" tvalue="xvcx-4">批量审核通过</a></li>
+                                        <li><a tname="authorityList" tvalue="xvcx-5">批量审核不通过</a></li>
+                                    </ul>
+                                </li>
+                                <li><a tname="authorityList" tvalue="mngh">建议办理管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="mngh-1">已交办</a></li>
+                                        <li><a tname="authorityList" tvalue="mngh-2">已办理</a></li>
+                                        <li><a tname="authorityList" tvalue="mngh-3">导入excel</a></li>
+                                        <li><a tname="authorityList" tvalue="mngh-4">导出excel</a></li>
+                                        <li><a tname="authorityList" tvalue="mngh-5">去办理</a></li>
+                                    </ul>
+                                </li>
+                                <li><a tname="authorityList" tvalue="yutr">建议反馈管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="yutr-3">导出excel</a></li>
+                                    </ul>
+                                </li>
+                                <li><a tname="authorityList" tvalue="nfgf">建议统计管理</a></li>
+                            </ul>
+                        </li>
+                        <li class="turnLeft">
+                            <a tname="authorityList" tvalue="hfsa">审核流程管理</a>
+                            <ul>
+                                <li><a tname="authorityList" tvalue="urew">审核流程管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="urew-1">添加</a></li>
+                                        <li><a tname="authorityList" tvalue="urew-2">修改</a></li>
+                                        <li><a tname="authorityList" tvalue="urew-3">删除</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="turnLeft"><a tname="authorityList" tvalue="vsdv">管理员管理</a>
+                            <ul>
+                                <li><a tname="authorityList" tvalue="wred">管理员管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="wred-2">修改</a></li>
+                                        <li><a tname="authorityList" tvalue="wred-3">删除</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="turnLeft">
+                            <a tname="authorityList" tvalue="mhgl">公共权限管理</a>
+                            <ul>
+                                <li><a tname="authorityList" tvalue="xwgl">权限管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="xwgl-1">添加</a></li>
+                                        <li><a tname="authorityList" tvalue="xwgl-2">修改</a></li>
+                                        <li><a tname="authorityList" tvalue="xwgl-3">删除</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="turnLeft"><a tname="authorityList" tvalue="kgzu">组织机构管理</a>
+                            <ul>
+                                <li><a tname="authorityList" tvalue="wqew">单位管理</a>
+                                    <ul>
+                                        <li><a tname="authorityList" tvalue="wqew-1">添加</a></li>
+                                        <li><a tname="authorityList" tvalue="wqew-2">修改</a></li>
+                                        <li><a tname="authorityList" tvalue="wqew-3">删除</a></li>
+                                        <li><a tname="authorityList" tvalue="yvzv">下级单位</a></li>
+                                        <li><a tname="authorityList" tvalue="kmhz">角色权限管理</a>
+                                            <ul>
+                                                <li><a tname="authorityList" tvalue="kmhz-1">添加</a></li>
+                                                <li><a tname="authorityList" tvalue="kmhz-2">修改</a></li>
+                                                <li><a tname="authorityList" tvalue="kmhz-3">删除</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a tname="authorityList" tvalue="safj">管理员管理</a>
+                                            <ul>
+                                                <li><a tname="authorityList" tvalue="safj-1">添加</a></li>
+                                                <li><a tname="authorityList" tvalue="safj-2">修改</a></li>
+                                                <li><a tname="authorityList" tvalue="safj-3">删除</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </p>
+            <div class="commit">
+                <ul>
+                    <!--<li><a class="buttonActive" href="javascript:;"><span>保存</span></a></li>-->
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">保存</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="button">
+                            <div class="buttonContent">
+                                <button type="button" class="close">取消</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </form>
+</div>
+<script type="text/javascript">
+    /* checkAuths();
+
+     function checkAuths() {
+         debugger;
+         var authResult = $(".container").attr("value");
+         var authList = authResult.split(",");
+         if (authResult) {
+             var inputs = $(".ckbox");
+             $(".container .accordionContent input").each(function () {
+                 for (var i = 0; i < authList.length; i++) {
+                     var tvalue = $(this).attr("value");
+                     var a = authResult[i];
+                     if ($(this).attr("tvalue") == authResult[i]) {
+                         var div1 = $(this).parent("div").childAt(1);
+                         $(div1).addClass("checked");
+                         $(div1).find("input").attr("checked", "checked")
+                     }
+                 }
+
+             })
+         }
+     }
+ */
+</script>

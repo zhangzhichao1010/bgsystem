@@ -1,0 +1,69 @@
+<div class="pageHeader" style="border:1px #B8D0D6 solid">
+    <form id="pagerForm" method="post" action="/manage/RolesController/suggestRoles" class="pageForm required-validate"
+          onsubmit="return dialogSearch(this);">
+        <input type="hidden" name="pageNum" th:value="${pageNum}"/>
+        <input type="hidden" name="numPerPage" th:value="${numPerPage}"/>
+        <input type="hidden" name="type" th:value="${type}"/>
+        <input type="hidden" name="unitId" th:value="${unitId}"/>
+        <input type="hidden" name="fid" th:value="${fid}"/>
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <td style="padding-right: 12px">
+                        角色名称：<input type="text" class="textInput" name="searchWord" th:value="${searchWord?:''}" style="width: 100px"/>
+                    </td>
+                    <td class="subBar" style="height: 4px;">
+                        <ul style="margin-top: 4px; margin-right: -36px;">
+                            <li>
+                                <div class="buttonActive">
+                                    <div class="buttonContent">
+                                        <button type="submit">查询</button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="button">
+                                    <div class="buttonContent">
+                                        <button type="button" multLookup="bz" warn="请选择标准">选择带回</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+<div class="pageContent">
+    <table class="table" layoutH="135" targetType="dialog" width="100%">
+        <thead>
+        <tr>
+            <th width="30"><input type="checkbox" class="checkboxCtrl" group="bz"/></th>
+            <th align="center">角色名称</th>
+            <th align="center">角色简介</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vo:${pager.data}">
+            <td><input type="checkbox" name="bz" th:value="'{roleIds:\''+${vo.id}+'\', rolenames:\''+${vo?.rolename}+'\'}'"/></td>
+            <td align="center" th:text="${vo.rolename}"></td>
+            <td align="center" th:text="${vo.roleDetail}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="panelBar">
+        <div class="pages">
+            <span>显示</span>
+            <select class="combox" name="numPerPage" onchange="dialogPageBreak({numPerPage:this.value})">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            <span th:text="'条，共'+${total}+'条'"></span>
+        </div>
+        <div class="pagination" targetType="dialog" th:totalCount="${total}" th:numPerPage="${numPerPage}" pageNumShown="10"
+             th:currentPage="${pageNum}"></div>
+    </div>
+</div>
