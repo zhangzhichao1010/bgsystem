@@ -50,8 +50,8 @@ XHEDITOR.setLang({
     'pasteDisabledTip': '您的瀏覽器安全設置不允許使用貼上操作，請使用鍵盤快捷鍵(Ctrl + V)來完成',
     'close': '關閉',
 
-    'listFontname': [{n:'新細明體',c:'PMingLiu'},{n:'細明體',c:'mingliu'},{n:'標楷體',c:'DFKai-SB'},{n:'微軟正黑體',c:'Microsoft JhengHei'},{n:'Arial'},{n:'Arial Black'},{n:'Comic Sans MS'},{n:'Courier New'},{n:'System'},{n:'Times New Roman'},{n:'Tahoma'},{n:'Verdana'}],
-    
+    'listFontname': [{n: '新細明體', c: 'PMingLiu'}, {n: '細明體', c: 'mingliu'}, {n: '標楷體', c: 'DFKai-SB'}, {n: '微軟正黑體', c: 'Microsoft JhengHei'}, {n: 'Arial'}, {n: 'Arial Black'}, {n: 'Comic Sans MS'}, {n: 'Courier New'}, {n: 'System'}, {n: 'Times New Roman'}, {n: 'Tahoma'}, {n: 'Verdana'}],
+
     'listBlocktag': {
         'p': '普通段落',
         'h1': '標題1',
@@ -182,7 +182,7 @@ XHEDITOR.setLang({
     },
 
     'upload': {
-        'btnText' : '上傳',
+        'btnText': '上傳',
         'browserTitle': '瀏覽文件',
         'progressTitle': '文件上傳中(Esc取消上傳)',
         'progressTip': '文件上傳中，請稍候……',
