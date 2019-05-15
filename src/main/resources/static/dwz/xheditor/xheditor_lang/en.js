@@ -50,8 +50,8 @@ XHEDITOR.setLang({
     'pasteDisabledTip': 'Currently not supported by your browser, use keyboard shortcuts(Ctrl+V) instead.',
     'close': 'Close',
 
-    'listFontname': [{n:'Arial'},{n:'Arial Black'},{n:'Comic Sans MS'},{n:'Courier New'},{n:'System'},{n:'Times New Roman'},{n:'Tahoma'},{n:'Verdana'}],
-    
+    'listFontname': [{n: 'Arial'}, {n: 'Arial Black'}, {n: 'Comic Sans MS'}, {n: 'Courier New'}, {n: 'System'}, {n: 'Times New Roman'}, {n: 'Tahoma'}, {n: 'Verdana'}],
+
     'listBlocktag': {
         'p': 'Paragraph',
         'h1': 'Heading 1',
@@ -182,7 +182,7 @@ XHEDITOR.setLang({
     },
 
     'upload': {
-        'btnText' : 'Upload',
+        'btnText': 'Upload',
         'browserTitle': 'Browser file',
         'progressTitle': 'File uploading(Esc cancel)',
         'progressTip': 'File uploading,please wait...',

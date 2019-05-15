@@ -37,8 +37,11 @@ Raphael.el.popup = function (dir, size, x, y) {
     switch (this.type) {
         case 'text':
         case 'circle':
-        case 'ellipse': center = true; break;
-        default: center = false;
+        case 'ellipse':
+            center = true;
+            break;
+        default:
+            center = false;
     }
 
     dir = dir == null ? 'up' : dir;
@@ -109,15 +112,15 @@ Raphael.el.popup = function (dir, size, x, y) {
     };
 
     xy = {
-        up: { x: -!center * (bb.width / 2), y: -size * 2 - (center ? bb.height / 2 : bb.height) },
-        down: { x: -!center * (bb.width / 2), y: size * 2 + (center ? bb.height / 2 : bb.height) },
-        left: { x: -size * 2 - (center ? bb.width / 2 : bb.width), y: -!center * (bb.height / 2) },
-        right: { x: size * 2 + (center ? bb.width / 2 : bb.width), y: -!center * (bb.height / 2) }
+        up: {x: -!center * (bb.width / 2), y: -size * 2 - (center ? bb.height / 2 : bb.height)},
+        down: {x: -!center * (bb.width / 2), y: size * 2 + (center ? bb.height / 2 : bb.height)},
+        left: {x: -size * 2 - (center ? bb.width / 2 : bb.width), y: -!center * (bb.height / 2)},
+        right: {x: size * 2 + (center ? bb.width / 2 : bb.width), y: -!center * (bb.height / 2)}
     }[dir];
 
     this.translate(xy.x, xy.y);
 
-    return paper.path(paths[dir]).attr({ fill: "#000", stroke: "none" }).insertBefore(this.node ? this : this[0]);
+    return paper.path(paths[dir]).attr({fill: "#000", stroke: "none"}).insertBefore(this.node ? this : this[0]);
 };
 
 /*\
@@ -146,15 +149,18 @@ Raphael.el.tag = function (angle, r, x, y) {
 
     if (!paper) return;
 
-    var p = paper.path().attr({ fill: '#000', stroke: '#000' }),
+    var p = paper.path().attr({fill: '#000', stroke: '#000'}),
         bb = this.getBBox(),
         dx, R, center, tmp;
 
     switch (this.type) {
         case 'text':
         case 'circle':
-        case 'ellipse': center = true; break;
-        default: center = false;
+        case 'ellipse':
+            center = true;
+            break;
+        default:
+            center = false;
     }
 
     angle = angle || 0;
@@ -168,7 +174,7 @@ Raphael.el.tag = function (angle, r, x, y) {
             path: [
                 "M", x, y + r,
                 "a", r, r, 0, 1, 1, 0, -r * 2, r, r, 0, 1, 1, 0, r * 2,
-                "m", 0, -r * 2 -d,
+                "m", 0, -r * 2 - d,
                 "a", r + d, r + d, 0, 1, 0, 0, (r + d) * 2,
                 "L", x + r + d, y + bb.height / 2 + d,
                 "l", bb.width + 2 * d, 0, 0, -bb.height - 2 * d, -bb.width - 2 * d, 0,
@@ -204,7 +210,7 @@ Raphael.el.tag = function (angle, r, x, y) {
             this.rotate(angle - 180, bb.x + bb.width + r + d, bb.y + bb.height / 2);
         } else {
             this.translate(x - bb.x + r + d, y - bb.y - bb.height / 2);
-            this.rotate(angle, bb.x - r - d, bb.y + bb.height / 2); 
+            this.rotate(angle, bb.x - r - d, bb.y + bb.height / 2);
         }
     }
 
@@ -240,8 +246,11 @@ Raphael.el.drop = function (angle, x, y) {
     switch (this.type) {
         case 'text':
         case 'circle':
-        case 'ellipse': center = true; break;
-        default: center = false;
+        case 'ellipse':
+            center = true;
+            break;
+        default:
+            center = false;
     }
 
     angle = angle || 0;
@@ -292,7 +301,7 @@ Raphael.el.flag = function (angle, x, y) {
 
     if (!paper) return;
 
-    var p = paper.path().attr({ fill: '#000', stroke: '#000' }),
+    var p = paper.path().attr({fill: '#000', stroke: '#000'}),
         bb = this.getBBox(),
         h = bb.height / 2,
         center;
@@ -300,13 +309,16 @@ Raphael.el.flag = function (angle, x, y) {
     switch (this.type) {
         case 'text':
         case 'circle':
-        case 'ellipse': center = true; break;
-        default: center = false;
+        case 'ellipse':
+            center = true;
+            break;
+        default:
+            center = false;
     }
 
     angle = angle || 0;
     x = typeof x == 'number' ? x : (center ? bb.x + bb.width / 2 : bb.x);
-    y = typeof y == 'number' ? y : (center ? bb.y + bb.height / 2: bb.y);
+    y = typeof y == 'number' ? y : (center ? bb.y + bb.height / 2 : bb.y);
 
     p.attr({
         path: [
@@ -358,7 +370,7 @@ Raphael.el.label = function () {
 
     if (!paper) return;
 
-    return paper.rect(bb.x - r / 2, bb.y - r / 2, bb.width + r, bb.height + r, r).attr({ stroke: 'none', fill: '#000' }).insertBefore(this.node ? this : this[0]);
+    return paper.rect(bb.x - r / 2, bb.y - r / 2, bb.width + r, bb.height + r, r).attr({stroke: 'none', fill: '#000'}).insertBefore(this.node ? this : this[0]);
 };
 
 /*\
@@ -391,11 +403,14 @@ Raphael.el.blob = function (angle, x, y) {
     switch (this.type) {
         case 'text':
         case 'circle':
-        case 'ellipse': center = true; break;
-        default: center = false;
+        case 'ellipse':
+            center = true;
+            break;
+        default:
+            center = false;
     }
 
-    p = paper.path().attr({ fill: "#000", stroke: "none" });
+    p = paper.path().attr({fill: "#000", stroke: "none"});
     angle = (+angle + 1 ? angle : 45) + 90;
     size = Math.min(bb.height, bb.width);
     x = typeof x == 'number' ? x : (center ? bb.x + bb.width / 2 : bb.x);
@@ -583,8 +598,8 @@ Raphael.fn.blob = function (x, y, text, angle) {
 /**
  * zhanghuihua
  */
-Raphael.fn.axis=function (x, y, length, from, to, steps, orientation, labels, type, dashsize) {
-	return Raphael.g.axis(x, y, length, from, to, steps, orientation, labels, type, dashsize, this) ;
+Raphael.fn.axis = function (x, y, length, from, to, steps, orientation, labels, type, dashsize) {
+    return Raphael.g.axis(x, y, length, from, to, steps, orientation, labels, type, dashsize, this);
 };
 /**
  * Brightness functions on the Element prototype
@@ -677,7 +692,7 @@ Raphael.el.darker = function (times) {
  \*/
 Raphael.el.resetBrightness = function () {
     if (this.fs) {
-        this.attr({ fill: this.fs[0], stroke: this.fs[1] });
+        this.attr({fill: this.fs[0], stroke: this.fs[1]});
         delete this.fs;
     }
     return this;
@@ -716,7 +731,7 @@ Raphael.g = {
      > Default value
      | { stroke: 'none', fill: '#000', 'fill-opacity': 0 }
      \*/
-    shim: { stroke: 'none', fill: '#000', 'fill-opacity': 0 },
+    shim: {stroke: 'none', fill: '#000', 'fill-opacity': 0},
 
     /*\
      * g.txtattr
@@ -726,8 +741,8 @@ Raphael.g = {
      **
      > Default value
      | { font: '12px Arial, sans-serif', fill: '#fff' }
-     \*/  
-    txtattr: { font: '12px Arial, sans-serif', fill: '#fff' },
+     \*/
+    txtattr: {font: '12px Arial, sans-serif', fill: '#fff'},
 
     /*\
      * g.colors
@@ -737,21 +752,21 @@ Raphael.g = {
      **
      \*/
     colors: (function () {
-            var hues = [.6, .2, .05, .1333, .75, 0],
-                colors = [];
+        var hues = [.6, .2, .05, .1333, .75, 0],
+            colors = [];
 
-            for (var i = 0; i < 10; i++) {
-                if (i < hues.length) {
-                    colors.push('hsb(' + hues[i] + ',.75, .75)');
-                } else {
-                    colors.push('hsb(' + hues[i - hues.length] + ', 1, .5)');
-                }
+        for (var i = 0; i < 10; i++) {
+            if (i < hues.length) {
+                colors.push('hsb(' + hues[i] + ',.75, .75)');
+            } else {
+                colors.push('hsb(' + hues[i - hues.length] + ', 1, .5)');
             }
+        }
 
-            return colors;
+        return colors;
     })(),
-    
-    snapEnds: function(from, to, steps) {
+
+    snapEnds: function (from, to, steps) {
         var f = from,
             t = to;
 
@@ -774,7 +789,7 @@ Raphael.g = {
                 R = ~~(d * Math.pow(10, i)) / Math.pow(10, i);
             }
 
-            i ++;
+            i++;
         } else {
             while (!r) {
                 i = i || 1;
@@ -792,14 +807,14 @@ Raphael.g = {
         }
 
         f = round((from - (i > 0 ? 0 : .5)) * Math.pow(10, i)) / Math.pow(10, i);
-        return { from: f, to: t, power: i };
+        return {from: f, to: t, power: i};
     },
 
     axis: function (x, y, length, from, to, steps, orientation, labels, type, dashsize, paper) {
         dashsize = dashsize == null ? 2 : dashsize;
         type = type || "t";
         steps = steps || 10;
-        paper = arguments[arguments.length-1] //paper is always last argument
+        paper = arguments[arguments.length - 1] //paper is always last argument
 
         var path = type == "|" || type == " " ? ["M", x + .5, y, "l", 0, .001] : orientation == 1 || orientation == 3 ? ["M", x + .5, y, "l", 0, -length] : ["M", x, y + .5, "l", length, 0],
             ends = this.snapEnds(from, to, steps),
@@ -807,7 +822,7 @@ Raphael.g = {
             t = ends.to,
             i = ends.power,
             j = 0,
-            txtattr = { font: "11px 'Fontin Sans', Fontin-Sans, sans-serif" },
+            txtattr = {font: "11px 'Fontin Sans', Fontin-Sans, sans-serif"},
             text = paper.set(),
             d;
 
@@ -815,7 +830,7 @@ Raphael.g = {
 
         var label = f,
             rnd = i > 0 ? i : 0;
-            dx = length / steps;
+        dx = length / steps;
 
         if (+orientation == 1 || +orientation == 3) {
             var Y = y,
@@ -823,14 +838,14 @@ Raphael.g = {
 
             while (Y >= y - length) {
                 type != "-" && type != " " && (path = path.concat(["M", x - (type == "+" || type == "|" ? dashsize : !(orientation - 1) * dashsize * 2), Y + .5, "l", dashsize * 2 + 1, 0]));
-                text.push(paper.text(x + addon, Y, (labels && labels[j++]) || (Math.round(label) == label ? label : +label.toFixed(rnd))).attr(txtattr).attr({ "text-anchor": orientation - 1 ? "start" : "end" }));
+                text.push(paper.text(x + addon, Y, (labels && labels[j++]) || (Math.round(label) == label ? label : +label.toFixed(rnd))).attr(txtattr).attr({"text-anchor": orientation - 1 ? "start" : "end"}));
                 label += d;
                 Y -= dx;
             }
 
             if (Math.round(Y + dx - (y - length))) {
                 type != "-" && type != " " && (path = path.concat(["M", x - (type == "+" || type == "|" ? dashsize : !(orientation - 1) * dashsize * 2), y - length + .5, "l", dashsize * 2 + 1, 0]));
-                text.push(paper.text(x + addon, y - length, (labels && labels[j]) || (Math.round(label) == label ? label : +label.toFixed(rnd))).attr(txtattr).attr({ "text-anchor": orientation - 1 ? "start" : "end" }));
+                text.push(paper.text(x + addon, y - length, (labels && labels[j]) || (Math.round(label) == label ? label : +label.toFixed(rnd))).attr(txtattr).attr({"text-anchor": orientation - 1 ? "start" : "end"}));
             }
         } else {
             label = f;
@@ -875,8 +890,8 @@ Raphael.g = {
 
         return res;
     },
-    
-    labelise: function(label, val, total) {
+
+    labelise: function (label, val, total) {
         if (label) {
             return (label + "").replace(/(##+(?:\.#+)?)|(%%+(?:\.%+)?)/g, function (all, value, percent) {
                 if (value) {

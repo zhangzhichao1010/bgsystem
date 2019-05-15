@@ -5,14 +5,14 @@
  * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
  */
 (function () {
-        var colorValue = function (value, total, s, b) {
-            return 'hsb(' + [Math.min((1 - value / total) * .4, 1), s || .75, b || .75] + ')';
-        };
+    var colorValue = function (value, total, s, b) {
+        return 'hsb(' + [Math.min((1 - value / total) * .4, 1), s || .75, b || .75] + ')';
+    };
 
     function Dotchart(paper, x, y, width, height, valuesx, valuesy, size, opts) {
-        
+
         var chartinst = this;
-        
+
         function drawAxis(ax) {
             +ax[0] && (ax[0] = chartinst.axis(x + gutter, y + gutter, width - 2 * gutter, minx, maxx, opts.axisxstep || Math.floor((width - 2 * gutter) / 20), 2, opts.axisxlabels || null, opts.axisxtype || "t", null, paper));
             +ax[1] && (ax[1] = chartinst.axis(x + width - gutter, y + height - gutter, height - 2 * gutter, miny, maxy, opts.axisystep || Math.floor((height - 2 * gutter) / 20), 3, opts.axisylabels || null, opts.axisytype || "t", null, paper));
@@ -84,7 +84,7 @@
                 X = x + gutter + (valuesx[i] - minx) * kx,
                 Y = y + height - gutter - (valuesy[i] - miny) * ky;
 
-            sym && R[i] && series.push(paper[sym](X, Y, R[i]).attr({ fill: opts.heat ? colorValue(R[i], maxR) : chartinst.colors[0], "fill-opacity": opts.opacity ? R[i] / max : 1, stroke: "none" }));
+            sym && R[i] && series.push(paper[sym](X, Y, R[i]).attr({fill: opts.heat ? colorValue(R[i], maxR) : chartinst.colors[0], "fill-opacity": opts.opacity ? R[i] / max : 1, stroke: "none"}));
         }
 
         var covers = paper.set();
@@ -143,14 +143,15 @@
         };
         return res;
     };
-    
+
     //inheritance
-    var F = function() {};
+    var F = function () {
+    };
     F.prototype = Raphael.g
     Dotchart.prototype = new F;
-    
+
     //public
-    Raphael.fn.dotchart = function(x, y, width, height, valuesx, valuesy, size, opts) {
+    Raphael.fn.dotchart = function (x, y, width, height, valuesx, valuesy, size, opts) {
         return new Dotchart(this, x, y, width, height, valuesx, valuesy, size, opts);
     }
 })();

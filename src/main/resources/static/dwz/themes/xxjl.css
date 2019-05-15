@@ -1,18 +1,88 @@
-.tabs .tabsHeader{background: #f7f7f7;height:34px;margin-bottom: 10px;}
-.tabs, .tabsHeader, .tabsHeaderContent, .tabs .tabsHeader ul, .tabs .tabsHeader li, .tabs .tabsHeader li a, .tabs .tabsHeader li span, .tabs .tabsFooter, .tabs .tabsFooterContent{background:none}
-.tabs .tabsHeader li.selected{border-bottom:#48b4e6 2px solid;}
-.tabs .tabsHeader li.selected span{color:#48b4e6; font-weight:normal}
-.tabs .tabsHeader li span{font-size:16px; color:#888888}
-.tabs .tabsHeaderContent,.tabs .tabsHeader ul{height:34px;}
-.tabs .tabsHeader ul li{height:32px;}
+.tabs .tabsHeader {
+    background: #f7f7f7;
+    height: 34px;
+    margin-bottom: 10px;
+}
+
+.tabs, .tabsHeader, .tabsHeaderContent, .tabs .tabsHeader ul, .tabs .tabsHeader li, .tabs .tabsHeader li a, .tabs .tabsHeader li span, .tabs .tabsFooter, .tabs .tabsFooterContent {
+    background: none
+}
+
+.tabs .tabsHeader li.selected {
+    border-bottom: #48b4e6 2px solid;
+}
+
+.tabs .tabsHeader li.selected span {
+    color: #48b4e6;
+    font-weight: normal
+}
+
+.tabs .tabsHeader li span {
+    font-size: 16px;
+    color: #888888
+}
+
+.tabs .tabsHeaderContent, .tabs .tabsHeader ul {
+    height: 34px;
+}
+
+.tabs .tabsHeader ul li {
+    height: 32px;
+}
 
 
-.tabs .tabsContent{background:none}
-.tabs .tabsContent{border:none}
-.y_tjul{margin:0 0 22px; overflow:hidden;}
-.y_tjul li{ float:left; font-size:14px; color:#888888;margin-right:40px; margin-left:10px;}
-.y_tjul li span{ font-size:14px; color:#333333;margin-left:13px;}
-.y_colum{width:100%;font-size:16px;color:#48b4e6; margin-bottom:10px; margin-top:22px; text-indent:10px}
-.page .pageHeader, .formBar{background:none;border:none}
-table.list th{height:30px; background:#e5f0fb;border:none;font-size:14px;color:#888;}
-table.list td{border:none; height:45px;font-size:14px;color:#333;}
+.tabs .tabsContent {
+    background: none
+}
+
+.tabs .tabsContent {
+    border: none
+}
+
+.y_tjul {
+    margin: 0 0 22px;
+    overflow: hidden;
+}
+
+.y_tjul li {
+    float: left;
+    font-size: 14px;
+    color: #888888;
+    margin-right: 40px;
+    margin-left: 10px;
+}
+
+.y_tjul li span {
+    font-size: 14px;
+    color: #333333;
+    margin-left: 13px;
+}
+
+.y_colum {
+    width: 100%;
+    font-size: 16px;
+    color: #48b4e6;
+    margin-bottom: 10px;
+    margin-top: 22px;
+    text-indent: 10px
+}
+
+.page .pageHeader, .formBar {
+    background: none;
+    border: none
+}
+
+table.list th {
+    height: 30px;
+    background: #e5f0fb;
+    border: none;
+    font-size: 14px;
+    color: #888;
+}
+
+table.list td {
+    border: none;
+    height: 45px;
+    font-size: 14px;
+    color: #333;
+}

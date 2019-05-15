@@ -37,23 +37,31 @@
                     "z"
                 ];
 
-            res.middle = { x: xm, y: ym };
+            res.middle = {x: xm, y: ym};
             return res;
         }
 
         chart.covers = covers;
 
         if (len == 1) {
-            series.push(paper.circle(cx, cy, r).attr({ fill: chartinst.colors[0], stroke: opts.stroke || "#fff", "stroke-width": opts.strokewidth == null ? 1 : opts.strokewidth }));
+            series.push(paper.circle(cx, cy, r).attr({fill: chartinst.colors[0], stroke: opts.stroke || "#fff", "stroke-width": opts.strokewidth == null ? 1 : opts.strokewidth}));
             covers.push(paper.circle(cx, cy, r).attr(chartinst.shim));
             total = values[0];
-            values[0] = { value: values[0], order: 0, valueOf: function () { return this.value; } };
+            values[0] = {
+                value: values[0], order: 0, valueOf: function () {
+                    return this.value;
+                }
+            };
             series[0].middle = {x: cx, y: cy};
             series[0].mangle = 180;
         } else {
             for (var i = 0; i < len; i++) {
                 total += values[i];
-                values[i] = { value: values[i], order: i, valueOf: function () { return this.value; } };
+                values[i] = {
+                    value: values[i], order: i, valueOf: function () {
+                        return this.value;
+                    }
+                };
             }
 
             values.sort(function (a, b) {
@@ -90,27 +98,29 @@
                 }
 
                 var path = sector(cx, cy, r, angle, angle -= 360 * values[i] / total);
-                var p = paper.path(opts.init ? ipath : path).attr({ fill: opts.colors && opts.colors[i] || chartinst.colors[i] || "#666", stroke: opts.stroke || "#fff", "stroke-width": (opts.strokewidth == null ? 1 : opts.strokewidth), "stroke-linejoin": "round" });
+                var p = paper.path(opts.init ? ipath : path).attr({fill: opts.colors && opts.colors[i] || chartinst.colors[i] || "#666", stroke: opts.stroke || "#fff", "stroke-width": (opts.strokewidth == null ? 1 : opts.strokewidth), "stroke-linejoin": "round"});
 
                 p.value = values[i];
                 p.middle = path.middle;
                 p.mangle = mangle;
                 sectors.push(p);
                 series.push(p);
-                opts.init && p.animate({ path: path.join(",") }, (+opts.init - 1) || 1000, ">");
+                opts.init && p.animate({path: path.join(",")}, (+opts.init - 1) || 1000, ">");
             }
 
             for (i = 0; i < len; i++) {
                 p = paper.path(sectors[i].attr("path")).attr(chartinst.shim);
-                opts.href && opts.href[i] && p.attr({ href: opts.href[i] });
-                p.attr = function () {};
+                opts.href && opts.href[i] && p.attr({href: opts.href[i]});
+                p.attr = function () {
+                };
                 covers.push(p);
                 series.push(p);
             }
         }
 
         chart.hover = function (fin, fout) {
-            fout = fout || function () {};
+            fout = fout || function () {
+            };
 
             var that = this;
 
@@ -185,7 +195,9 @@
                         total: total,
                         label: that.labels && that.labels[j]
                     };
-                    cover.click(function () { f.call(o); });
+                    cover.click(function () {
+                        f.call(o);
+                    });
                 })(series[i], covers[i], i);
             }
             return this;
@@ -213,8 +225,8 @@
                 values[i].others && (labels[j] = otherslabel || "Others");
                 labels[j] = chartinst.labelise(labels[j], values[i], total);
                 chart.labels.push(paper.set());
-                chart.labels[i].push(paper[mark](x + 5, h, 5).attr({ fill: clr, stroke: "none" }));
-                chart.labels[i].push(txt = paper.text(x + 20, h, labels[j] || values[j]).attr(chartinst.txtattr).attr({ fill: opts.legendcolor || "#000", "text-anchor": "start"}));
+                chart.labels[i].push(paper[mark](x + 5, h, 5).attr({fill: clr, stroke: "none"}));
+                chart.labels[i].push(txt = paper.text(x + 20, h, labels[j] || values[j]).attr(chartinst.txtattr).attr({fill: opts.legendcolor || "#000", "text-anchor": "start"}));
                 covers[i].label = chart.labels[i];
                 h += txt.getBBox().height * 1.2;
             }
@@ -241,15 +253,16 @@
 
         return chart;
     };
-    
+
     //inheritance
-    var F = function() {};
+    var F = function () {
+    };
     F.prototype = Raphael.g;
     Piechart.prototype = new F;
-    
+
     //public
-    Raphael.fn.piechart = function(cx, cy, r, values, opts) {
+    Raphael.fn.piechart = function (cx, cy, r, values, opts) {
         return new Piechart(this, cx, cy, r, values, opts);
     }
-    
+
 })();

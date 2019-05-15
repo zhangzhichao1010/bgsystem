@@ -50,8 +50,8 @@ XHEDITOR.setLang({
     'pasteDisabledTip': '您的浏览器安全设置不允许使用粘贴操作，请使用键盘快捷键(Ctrl + V)来完成',
     'close': '关闭',
 
-    'listFontname': [{n:'宋体',c:'SimSun'},{n:'仿宋体',c:'FangSong_GB2312'},{n:'黑体',c:'SimHei'},{n:'楷体',c:'KaiTi_GB2312'},{n:'微软雅黑',c:'Microsoft YaHei'},{n:'Arial'},{n:'Arial Black'},{n:'Comic Sans MS'},{n:'Courier New'},{n:'System'},{n:'Times New Roman'},{n:'Tahoma'},{n:'Verdana'}],
-    
+    'listFontname': [{n: '宋体', c: 'SimSun'}, {n: '仿宋体', c: 'FangSong_GB2312'}, {n: '黑体', c: 'SimHei'}, {n: '楷体', c: 'KaiTi_GB2312'}, {n: '微软雅黑', c: 'Microsoft YaHei'}, {n: 'Arial'}, {n: 'Arial Black'}, {n: 'Comic Sans MS'}, {n: 'Courier New'}, {n: 'System'}, {n: 'Times New Roman'}, {n: 'Tahoma'}, {n: 'Verdana'}],
+
     'listBlocktag': {
         'p': '普通段落',
         'h1': '标题1',
@@ -182,7 +182,7 @@ XHEDITOR.setLang({
     },
 
     'upload': {
-        'btnText' : '上传',
+        'btnText': '上传',
         'browserTitle': '浏览文件',
         'progressTitle': '文件上传中(Esc取消上传)',
         'progressTip': '文件上传中，请稍候……',

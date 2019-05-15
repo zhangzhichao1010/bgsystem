@@ -52,9 +52,9 @@
     }
 
     function Linechart(paper, x, y, width, height, valuesx, valuesy, opts) {
-        
+
         var chartinst = this;
-        
+
         opts = opts || {};
 
         if (!paper.raphael.is(valuesx[0], "array")) {
@@ -82,7 +82,7 @@
 
         for (i = 0, ii = valuesy.length; i < ii; i++) {
             if (opts.shade) {
-                shades.push(paper.path().attr({ stroke: "none", fill: colors[i], opacity: opts.nostroke ? 1 : .3 }));
+                shades.push(paper.path().attr({stroke: "none", fill: colors[i], opacity: opts.nostroke ? 1 : .3}));
             }
 
             if (valuesy[i].length > width - 2 * gutter) {
@@ -108,11 +108,11 @@
 
         var axis = paper.set();
         if (opts.axis) {
-        	
-        	miny = 0;
-        	maxy = ydim.to;
-        	ky = (height - gutter * 2) / ((maxy - miny) || 1);
-        	
+
+            miny = 0;
+            maxy = ydim.to;
+            ky = (height - gutter * 2) / ((maxy - miny) || 1);
+
             var ax = (opts.axis + "").split(/[,\s]+/);
             +ax[0] && axis.push(chartinst.axis(x + gutter, y + gutter, width - 2 * gutter, minx, maxx, opts.axisxstep || Math.floor((width - 2 * gutter) / 20), 2, opts.axisxlables, paper));
             +ax[1] && axis.push(chartinst.axis(x + width - gutter, y + height - gutter, height - 2 * gutter, ydim.from, ydim.to, opts.axisystep || Math.floor((height - 2 * gutter) / 20), 3, paper));
@@ -145,7 +145,7 @@
                 var X = x + gutter + ((valuesx[i] || valuesx[0])[j] - minx) * kx,
                     Y = y + height - gutter - (valuesy[i][j] - miny) * ky;
 
-                (Raphael.is(sym, "array") ? sym[j] : sym) && symset.push(paper[Raphael.is(sym, "array") ? sym[j] : sym](X, Y, (opts.width || 2) * 3).attr({ fill: colors[i], stroke: "none" }));
+                (Raphael.is(sym, "array") ? sym[j] : sym) && symset.push(paper[Raphael.is(sym, "array") ? sym[j] : sym](X, Y, (opts.width || 2) * 3).attr({fill: colors[i], stroke: "none"}));
 
                 if (opts.smooth) {
                     if (j && j != jj - 1) {
@@ -173,10 +173,10 @@
             symbols.push(symset);
 
             if (opts.shade) {
-                shades[i].attr({ path: path.concat(["L", X, y + height - gutter, "L",  x + gutter + ((valuesx[i] || valuesx[0])[0] - minx) * kx, y + height - gutter, "z"]).join(",") });
+                shades[i].attr({path: path.concat(["L", X, y + height - gutter, "L", x + gutter + ((valuesx[i] || valuesx[0])[0] - minx) * kx, y + height - gutter, "z"]).join(",")});
             }
 
-            !opts.nostroke && line.attr({ path: path.join(",") });
+            !opts.nostroke && line.attr({path: path.join(",")});
         }
 
         function createColumns(f) {
@@ -187,7 +187,9 @@
                 Xs = Xs.concat(valuesx[i]);
             }
 
-            Xs.sort(function(a,b){return a-b;});
+            Xs.sort(function (a, b) {
+                return a - b;
+            });
             // remove duplicates
 
             var Xs2 = [],
@@ -196,7 +198,7 @@
             for (i = 0, ii = Xs.length; i < ii; i++) {
                 Xs[i] != Xs[i - 1] && Xs2.push(Xs[i]) && xs.push(x + gutter + (Xs[i] - minx) * kx);
             }
-            
+
 
             Xs = Xs2;
             ii = Xs.length;
@@ -208,7 +210,7 @@
                     w = ((xs[i + 1] || x + width) - xs[i]) / 2 + (xs[i] - (xs[i - 1] || x)) / 2,
                     C;
 
-                f ? (C = {}) : cvrs.push(C = paper.rect(X - 1, y, Math.max(w + 1, 1), height).attr({ stroke: "none", fill: "#000", opacity: 0 }));
+                f ? (C = {}) : cvrs.push(C = paper.rect(X - 1, y, Math.max(w + 1, 1), height).attr({stroke: "none", fill: "#000", opacity: 0}));
                 C.values = [];
                 C.symbols = paper.set();
                 C.y = [];
@@ -243,7 +245,7 @@
                         nearX = x + gutter + ((valuesx[i] || valuesx[0])[j ? j - 1 : 1] - minx) * kx,
                         Y = y + height - gutter - (valuesy[i][j] - miny) * ky;
 
-                    f ? (C = {}) : cvrs.push(C = paper.circle(X, Y, Math.abs(nearX - X) / 2).attr({ stroke: "none", fill: "#000", opacity: 0 }));
+                    f ? (C = {}) : cvrs.push(C = paper.circle(X, Y, Math.abs(nearX - X) / 2).attr({stroke: "none", fill: "#000", opacity: 0}));
                     C.x = X;
                     C.y = Y;
                     C.value = valuesy[i][j];
@@ -321,15 +323,16 @@
 
         return chart;
     };
-    
+
     //inheritance
-    var F = function() {};
+    var F = function () {
+    };
     F.prototype = Raphael.g;
     Linechart.prototype = new F;
-    
+
     //public
-    Raphael.fn.linechart = function(x, y, width, height, valuesx, valuesy, opts) {
+    Raphael.fn.linechart = function (x, y, width, height, valuesx, valuesy, opts) {
         return new Linechart(this, x, y, width, height, valuesx, valuesy, opts);
     }
-    
+
 })();

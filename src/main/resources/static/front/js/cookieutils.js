@@ -1,13 +1,7 @@
-function getcookiebyname(cookiename) {
-    var cookie= document.cookie;
-    var begin = cookie.indexOf(cookiename);
-    var a = cookie.indexOf("=", begin) + 1;
-    var b = cookie.indexOf(";", begin);
-    var value = "";
-    if (b != -1) {
-        value = cookie.substr(a, b - a);
-    } else {
-        value = cookie.substr(a);
+function getcookiebyname(name) {
+    var value = '; ' + document.cookie;
+    var parts = value.split('; ' + name + '=');
+    if (parts.length === 2) {
+        return parts.pop().split(';').shift();
     }
-    return value;
 }

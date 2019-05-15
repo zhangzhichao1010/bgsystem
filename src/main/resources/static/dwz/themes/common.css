@@ -1,74 +1,284 @@
-.y_left_nav .folder_expandable{background:none}
-.y_left_nav .folder_collapsable{background:none;}
+.y_left_nav .folder_expandable {
+    background: none
+}
 
-.y_left_nav .mhgl .folder_expandable{margin: 0 10px; background: url(azure/images/tree/xxcg_icon.png) no-repeat left center;}
-.y_left_nav .mhgl .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/xxcg_icon_h.png) no-repeat left center;}
-.y_left_nav .tyre .folder_expandable{margin: 0 10px; background: url(azure/images/tree/xianjie_01.png) no-repeat left center;}
-.y_left_nav .tyre .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/xianjie_02.png) no-repeat left center;}
-.y_left_nav .xxzgl .folder_expandable{margin: 0 10px; background: url(azure/images/tree/xxzgl_icon.png) no-repeat left center;}
-.y_left_nav .xxzgl .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/xxzgl_icon_h.png) no-repeat left center;}
-.y_left_nav .yiur .folder_expandable{margin: 0 10px; background: url(azure/images/tree/fenxi_02.png) no-repeat left center;}
-.y_left_nav .yiur .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/fenxi_01.png) no-repeat left center;}
-.y_left_nav .xxzgl ul .folder_expandable{margin:0; background:none}
-.y_left_nav .xxzgl ul .folder_collapsable{margin:0; background:none}
-.y_left_nav .xxcg .folder_expandable{margin: 0 10px; background: url(azure/images/tree/xxcggl_icon.png) no-repeat left center;}
-.y_left_nav .xxcg .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/xxcggl_icon_h.png) no-repeat left center;}
-.y_left_nav .xxcg ul .folder_expandable{margin:0; background:none}
-.y_left_nav .xxcg ul .folder_collapsable{margin:0; background:none}
-.y_left_nav .zlkj .folder_expandable{margin: 0 10px; background: url(azure/images/tree/zlgjgl_icon.png) no-repeat left center;}
-.y_left_nav .zlkj .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/zlgjgl_icon_h.png) no-repeat left center;}
-.y_left_nav .zlkj ul .folder_expandable{margin:0; background:none}
-.y_left_nav .zlkj ul .folder_collapsable{margin:0; background:none}
-.y_left_nav .bzw .folder_expandable{margin: 0 10px; background: url(azure/images/tree/bzgl_icon.png) no-repeat left center;}
-.y_left_nav .bzw .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/bzgl_icon_h.png) no-repeat left center;}
-.y_left_nav .bzw ul .folder_expandable{margin:0; background:none}
-.y_left_nav .bzw ul .folder_collapsable{margin:0; background:none}
+.y_left_nav .folder_collapsable {
+    background: none;
+}
+
+.y_left_nav .mhgl .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/xxcg_icon.png) no-repeat left center;
+}
+
+.y_left_nav .mhgl .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/xxcg_icon_h.png) no-repeat left center;
+}
+
+.y_left_nav .tyre .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/xianjie_01.png) no-repeat left center;
+}
+
+.y_left_nav .tyre .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/xianjie_02.png) no-repeat left center;
+}
+
+.y_left_nav .xxzgl .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/xxzgl_icon.png) no-repeat left center;
+}
+
+.y_left_nav .xxzgl .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/xxzgl_icon_h.png) no-repeat left center;
+}
+
+.y_left_nav .yiur .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/fenxi_02.png) no-repeat left center;
+}
+
+.y_left_nav .yiur .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/fenxi_01.png) no-repeat left center;
+}
+
+.y_left_nav .xxzgl ul .folder_expandable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .xxzgl ul .folder_collapsable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .xxcg .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/xxcggl_icon.png) no-repeat left center;
+}
+
+.y_left_nav .xxcg .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/xxcggl_icon_h.png) no-repeat left center;
+}
+
+.y_left_nav .xxcg ul .folder_expandable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .xxcg ul .folder_collapsable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .zlkj .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/zlgjgl_icon.png) no-repeat left center;
+}
+
+.y_left_nav .zlkj .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/zlgjgl_icon_h.png) no-repeat left center;
+}
+
+.y_left_nav .zlkj ul .folder_expandable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .zlkj ul .folder_collapsable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .bzw .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/bzgl_icon.png) no-repeat left center;
+}
+
+.y_left_nav .bzw .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/bzgl_icon_h.png) no-repeat left center;
+}
+
+.y_left_nav .bzw ul .folder_expandable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .bzw ul .folder_collapsable {
+    margin: 0;
+    background: none
+}
 
 
-.y_left_nav .gzxia .folder_expandable{margin: 0 10px; background: url(azure/images/tree/gztx_icon.png) no-repeat left center;}
-.y_left_nav .gzxia .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/gztx_icon_h.png) no-repeat left center;}
-.y_left_nav .gzxia ul .folder_expandable{margin:0; background:none}
-.y_left_nav .gzxia ul .folder_collapsable{margin:0; background:none}
+.y_left_nav .gzxia .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/gztx_icon.png) no-repeat left center;
+}
 
-.y_left_nav .ywlca .folder_expandable{margin: 0 10px; background: url(azure/images/tree/ywlcgl_icon.png) no-repeat left center;}
-.y_left_nav .ywlca .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/ywlcgl_icon_h.png) no-repeat left center;}
-.y_left_nav .ywlca ul .folder_expandable{margin:0; background:none}
-.y_left_nav .ywlca ul .folder_collapsable{margin:0; background:none}
+.y_left_nav .gzxia .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/gztx_icon_h.png) no-repeat left center;
+}
 
-.y_left_nav .zzxxa .folder_expandable{margin: 0 10px; background: url(azure/images/tree/zztxgl_icon.png) no-repeat left center;}
-.y_left_nav .zzxxa .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/zztxgl_icon_h.png) no-repeat left center;}
-.y_left_nav .zzxxa ul .folder_expandable{margin:0; background:none}
-.y_left_nav .zzxxa ul .folder_collapsable{margin:0; background:none}
+.y_left_nav .gzxia ul .folder_expandable {
+    margin: 0;
+    background: none
+}
 
-.y_left_nav .lmjg .folder_expandable{margin: 0 10px; background: url(azure/images/tree/lmjggl_icon.png) no-repeat left center;}
-.y_left_nav .lmjg .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/lmjggl_icon_h.png) no-repeat left center;}
-.y_left_nav .lmjg ul .folder_expandable{margin:0; background:none}
-.y_left_nav .lmjg ul .folder_collapsable{margin:0; background:none}
+.y_left_nav .gzxia ul .folder_collapsable {
+    margin: 0;
+    background: none
+}
 
-.y_left_nav .glyyh .folder_expandable{margin: 0 10px; background: url(azure/images/tree/glygl_icon.png) no-repeat left center;}
-.y_left_nav .glyyh .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/glygl_icon_h.png) no-repeat left center;}
-.y_left_nav .glyyh ul .folder_expandable{margin:0; background:none}
-.y_left_nav .glyyh ul .folder_collapsable{margin:0; background:none}
+.y_left_nav .ywlca .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/ywlcgl_icon.png) no-repeat left center;
+}
+
+.y_left_nav .ywlca .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/ywlcgl_icon_h.png) no-repeat left center;
+}
+
+.y_left_nav .ywlca ul .folder_expandable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .ywlca ul .folder_collapsable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .zzxxa .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/zztxgl_icon.png) no-repeat left center;
+}
+
+.y_left_nav .zzxxa .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/zztxgl_icon_h.png) no-repeat left center;
+}
+
+.y_left_nav .zzxxa ul .folder_expandable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .zzxxa ul .folder_collapsable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .lmjg .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/lmjggl_icon.png) no-repeat left center;
+}
+
+.y_left_nav .lmjg .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/lmjggl_icon_h.png) no-repeat left center;
+}
+
+.y_left_nav .lmjg ul .folder_expandable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .lmjg ul .folder_collapsable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .glyyh .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/glygl_icon.png) no-repeat left center;
+}
+
+.y_left_nav .glyyh .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/glygl_icon_h.png) no-repeat left center;
+}
+
+.y_left_nav .glyyh ul .folder_expandable {
+    margin: 0;
+    background: none
+}
+
+.y_left_nav .glyyh ul .folder_collapsable {
+    margin: 0;
+    background: none
+}
 
 
-.y_left_nav .xtrz .folder_expandable{margin: 0 10px; background: url(azure/images/tree/xtrz.png) no-repeat left center;}
-.y_left_nav .xtrz .folder_collapsable{margin: 0 10px;background:url(azure/images/tree/xtrz_h.png) no-repeat left center;}
+.y_left_nav .xtrz .folder_expandable {
+    margin: 0 10px;
+    background: url(azure/images/tree/xtrz.png) no-repeat left center;
+}
 
-
+.y_left_nav .xtrz .folder_collapsable {
+    margin: 0 10px;
+    background: url(azure/images/tree/xtrz_h.png) no-repeat left center;
+}
 
 
 /*.y_left_nav .mh:hover .folder_expandable{background:url(./images/tree/xxcg_icon_h.png) no-repeat left center;}*/
 
-.y_left_nav{margin-bottom:20px; margin-top:10px}
-.y_left_nav div{position:relative; margin-bottom:5px}
-.y_left_nav .node{background:none}
-.y_left_nav .file{background:none; display:none}
-.y_left_nav .line{background:none}
-.y_left_nav .end_expandable{position:absolute;width:95%; background:url(azure/images/tree/nav_row.png) no-repeat right center; }
-.y_left_nav .end_collapsable{position:absolute;width:95%; background:url(azure/images/tree/nav_row_h.png) no-repeat right center; }
-.y_left_nav ul .folder_collapsable{display:none}
-.y_left_nav ul .folder_expandable{display:none}
+.y_left_nav {
+    margin-bottom: 20px;
+    margin-top: 10px
+}
+
+.y_left_nav div {
+    position: relative;
+    margin-bottom: 5px
+}
+
+.y_left_nav .node {
+    background: none
+}
+
+.y_left_nav .file {
+    background: none;
+    display: none
+}
+
+.y_left_nav .line {
+    background: none
+}
+
+.y_left_nav .end_expandable {
+    position: absolute;
+    width: 95%;
+    background: url(azure/images/tree/nav_row.png) no-repeat right center;
+}
+
+.y_left_nav .end_collapsable {
+    position: absolute;
+    width: 95%;
+    background: url(azure/images/tree/nav_row_h.png) no-repeat right center;
+}
+
+.y_left_nav ul .folder_collapsable {
+    display: none
+}
+
+.y_left_nav ul .folder_expandable {
+    display: none
+}
 
 
-.y_left_nav .expandable,.y_left_nav .last_expandable{background:url(azure/images/tree/er_row.png) no-repeat center center;}
-.y_left_nav .collapsable,.y_left_nav .last_collapsable{background:url(azure/images/tree/er_row_h.png) no-repeat center center;}
+.y_left_nav .expandable, .y_left_nav .last_expandable {
+    background: url(azure/images/tree/er_row.png) no-repeat center center;
+}
+
+.y_left_nav .collapsable, .y_left_nav .last_collapsable {
+    background: url(azure/images/tree/er_row_h.png) no-repeat center center;
+}
