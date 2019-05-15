@@ -30,12 +30,12 @@
     <div class="panelBar">
         <ul class="toolBar">
             <li class="verify" authority="wqew-1"><a target="dialog" th:href="@{/manage/OrganizationsController/addOrganization(parentID=${parentID},unitlevel=${unitlevel},fid=${fid})}" class="add"
-                            width="476" height="580" mask="true" fresh="true"><span>添加</span></a>
+                                                     width="476" height="580" mask="true" fresh="true"><span>添加</span></a>
             </li>
             <li class="verify" authority="wqew-3"><a title="确定要删除吗?" th:href="@{/manage/OrganizationsController/delOrganization(parentID=${parentID},unitlevel=${unitlevel})}" warn="请选择数据"
-                            class="delete" rel="ids" target="selectedTodo"><span>删除</span></a></li>
+                                                     class="delete" rel="ids" target="selectedTodo"><span>删除</span></a></li>
             <li class="verify" authority="wqew-2"><a target="dialog" th:href="'/manage/OrganizationsController/editOrganization?id={adminId}&parentID='+${parentID}+'&unitlevel='+${unitlevel}" warn="请选择数据"
-                            width="476" height="670" checked="true" mask="true" fresh="true" class="edit" rel="editOrganization"><span>修改</span></a></li>
+                                                     width="476" height="670" checked="true" mask="true" fresh="true" class="edit" rel="editOrganization"><span>修改</span></a></li>
             <li class="line">line</li>
         </ul>
     </div>
