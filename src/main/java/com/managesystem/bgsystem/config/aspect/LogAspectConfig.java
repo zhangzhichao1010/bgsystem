@@ -25,7 +25,7 @@ import java.util.Map;
 public class LogAspectConfig {
     private volatile Long beginTime;
 
-    @Pointcut("execution(* com.managesystem.bgsystem.manage..*(..))")
+    @Pointcut("execution(* com.managesystem.bgsystem.Controller..manage..*(..))")
     public void excudeLogging() {
     }
 

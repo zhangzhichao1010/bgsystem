@@ -2,6 +2,7 @@ package com.managesystem.bgsystem.Model.Entity;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;

@@ -1,4 +1,5 @@
 package com.managesystem.bgsystem.RepositoryInterface;
+
 import com.managesystem.bgsystem.Model.Entity.Organizations;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;

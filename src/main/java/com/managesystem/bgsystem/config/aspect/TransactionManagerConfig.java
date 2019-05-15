@@ -24,6 +24,7 @@ public class TransactionManagerConfig {
     private static final String AOP_POINTCUT_EXPRESSION = "execution (* com.funteaching.educationmanage.Service..*(..))";
     @Autowired
     private PlatformTransactionManager transactionManager;
+
     @Bean
     public TransactionInterceptor TxAdvice() {
         /*事务管理规则，声明具备事务管理的方法名*/

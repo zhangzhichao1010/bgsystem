@@ -1,4 +1,5 @@
 package com.managesystem.bgsystem.Utils;
+
 import com.managesystem.bgsystem.Model.Entity.Admin;
 import com.managesystem.bgsystem.Model.Entity.Roles;
 import com.managesystem.bgsystem.exception.NormalException;
@@ -19,8 +20,6 @@ public class AdminUtils {
     }
 
 
-
-
     public static Integer getSuperFid() {
         Admin admin = (Admin) SecurityUtils.getSubject().getPrincipal();
         Integer fid = null;
@@ -31,7 +30,6 @@ public class AdminUtils {
         }
         return fid;
     }
-
 
 
     public static Integer getAdminType() {

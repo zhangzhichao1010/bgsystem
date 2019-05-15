@@ -15,7 +15,8 @@ public class SpecificationBuilder {
 
     /*  用法 类似 StringBuilder   非线程安全  */
 
-    public SpecificationBuilder() { }
+    public SpecificationBuilder() {
+    }
 
     private class Match implements Comparable {
         byte order;

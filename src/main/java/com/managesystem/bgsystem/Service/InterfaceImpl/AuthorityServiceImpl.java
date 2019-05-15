@@ -79,7 +79,7 @@ public class AuthorityServiceImpl implements AuthorityService {
             List<Authority> authorityList = new ArrayList<>();
             List<Roles> rolesList = rolesRepository.findAll(example, pageable).getContent();
             for (Roles role : rolesList
-                    ) {
+            ) {
                 authorityList.add(role.getAuthority());
             }
             total = rolesList.size();
@@ -93,7 +93,7 @@ public class AuthorityServiceImpl implements AuthorityService {
     public Boolean delAuthority(String ids) {
         if (!StringUtils.isEmpty(ids)) {
             for (String id : ids.split(",")
-                    ) {
+            ) {
                 if (!StringUtils.isEmpty(id)) {
                     authorityRepository.deleteById(Long.parseLong(id.trim()));
                 }

@@ -1,6 +1,7 @@
 package com.managesystem.bgsystem.Model.Pojo;
 
 //import java.io.Serializable;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class Pager implements Serializable {
         this.message = message;
     }
 
-    public Pager(int pageSize, int currentPage, int total, Object data, String result ) {
+    public Pager(int pageSize, int currentPage, int total, Object data, String result) {
         this.result = result;
         this.pageSize = pageSize;
         this.currentPage = currentPage;
@@ -92,8 +93,8 @@ public class Pager implements Serializable {
         this.data = data;
     }
 
-    public  String toString(){
-        return "Pager:[currentPage:"+currentPage+"]";
+    public String toString() {
+        return "Pager:[currentPage:" + currentPage + "]";
     }
 
     @Override

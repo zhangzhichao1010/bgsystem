@@ -21,7 +21,6 @@ public class DruidDataSourceConfig {
     }
 
 
-
     @Bean
     public DruidStatInterceptor druidStatInterceptor() {
         DruidStatInterceptor dsInterceptor = new DruidStatInterceptor();
@@ -43,7 +42,6 @@ public class DruidDataSourceConfig {
         defaultPointAdvisor.setAdvice(druidStatInterceptor);
         return defaultPointAdvisor;
     }
-
 
 
 }

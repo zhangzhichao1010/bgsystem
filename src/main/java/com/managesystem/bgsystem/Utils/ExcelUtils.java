@@ -1,12 +1,13 @@
 package com.managesystem.bgsystem.Utils;
 /*
-* 导出导入Excel
-* design all by zhichao zhang
-* 参数说明：
-* sheetName:表格抬头名称
-* fileName：文件名称
-* headerRows:默认写1
-* */
+ * 导出导入Excel
+ * design all by zhichao zhang
+ * 参数说明：
+ * sheetName:表格抬头名称
+ * fileName：文件名称
+ * headerRows:默认写1
+ * */
+
 import cn.afterturn.easypoi.excel.ExcelExportUtil;
 import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ExportParams;

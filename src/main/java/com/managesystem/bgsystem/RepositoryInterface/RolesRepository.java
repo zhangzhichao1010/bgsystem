@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface RolesRepository extends JpaRepository<Roles,Long> {
+public interface RolesRepository extends JpaRepository<Roles, Long> {
     @Query(value = "select * from roles where unit_id=?1", nativeQuery = true)
     List<Roles> findRolesByorgId(Long orgId);
 }

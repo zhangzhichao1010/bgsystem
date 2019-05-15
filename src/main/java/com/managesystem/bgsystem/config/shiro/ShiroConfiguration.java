@@ -1,4 +1,5 @@
 package com.managesystem.bgsystem.config.shiro;
+
 import com.managesystem.bgsystem.config.shiro.realm.ApplicationShiroRealm;
 import org.apache.shiro.config.Ini;
 import org.apache.shiro.mgt.SecurityManager;
@@ -36,7 +37,7 @@ public class ShiroConfiguration {
 
     //Filter工厂，设置对应的过滤条件和跳转条件
     @Bean
-    public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) throws Exception{
+    public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) throws Exception {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String, String> map = new HashMap<String, String>();

@@ -73,7 +73,7 @@ public class RolesServiceImpl implements RolesService {
     public Boolean delRoles(String ids) {
         if (!StringUtils.isEmpty(ids)) {
             for (String id : ids.split(",")
-                    ) {
+            ) {
                 rolesRepository.deleteById(Long.parseLong(id.trim()));
             }
         }
@@ -115,7 +115,7 @@ public class RolesServiceImpl implements RolesService {
 
         if (!StringUtils.isEmpty(roleIds)) {
             for (String roleId : roleIds.split(",")
-                    ) {
+            ) {
                 Roles role = rolesRepository.findById(Long.parseLong(roleId.trim())).get();
                 rolesList.add(role);
             }
@@ -158,7 +158,7 @@ public class RolesServiceImpl implements RolesService {
     public Boolean delAdmin(String ids) {
         if (!StringUtils.isEmpty(ids)) {
             for (String id : ids.split(",")
-                    ) {
+            ) {
                 adminRepository.deleteById(Long.parseLong(id.trim()));
             }
         }
@@ -179,7 +179,7 @@ public class RolesServiceImpl implements RolesService {
         List<Roles> rolesList = rolesRepository.findRolesByorgId(orgId);
         if (rolesList != null && rolesList.size() != 0) {
             for (Roles a : rolesList
-                    ) {
+            ) {
                 rolesRepository.delete(a);
             }
         }

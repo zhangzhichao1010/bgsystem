@@ -1,4 +1,5 @@
 package com.managesystem.bgsystem.Controller.manage;
+
 import com.managesystem.bgsystem.Model.Entity.Authority;
 import com.managesystem.bgsystem.Model.Pojo.Pager;
 import com.managesystem.bgsystem.Service.Interface.AuthorityService;

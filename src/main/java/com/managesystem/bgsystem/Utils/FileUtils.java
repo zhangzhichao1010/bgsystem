@@ -9,9 +9,9 @@ import java.io.InputStream;
 import java.util.UUID;
 
 /*
-* design all by zhichao zhang
-* 文件上传：图片上传（支持校验图片）
-* */
+ * design all by zhichao zhang
+ * 文件上传：图片上传（支持校验图片）
+ * */
 public class FileUtils {
 
     public static String saveImg(MultipartFile file, String savePath) {

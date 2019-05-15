@@ -47,7 +47,7 @@ public class Application {
         return "manage/Application/login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = {"/login"}, method = RequestMethod.POST)
     public String login(String username, String password, String code, ModelMap modelMap, HttpServletRequest request, HttpSession session) {
         String msg = "";
         String reqCode = "";
@@ -89,7 +89,12 @@ public class Application {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
-        return "manage/Application/index";
+        Admin admin = (Admin) SecurityUtils.getSubject().getPrincipal();
+        if (admin != null) {
+            return "manage/Application/index";
+        } else {
+            return "manage/Application/login";
+        }
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -148,5 +153,10 @@ public class Application {
             admin.setThemeName(themeName);
             adminService.saveDirectAdmin(admin);
         }
+    }
+
+    @RequestMapping(value = "/page_404", method = RequestMethod.GET)
+    public String page_404() {
+        return "manage/Application/404";
     }
 }

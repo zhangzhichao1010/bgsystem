@@ -1,4 +1,5 @@
 package com.managesystem.bgsystem.Service.InterfaceImpl;
+
 import com.managesystem.bgsystem.Model.Entity.Admin;
 import com.managesystem.bgsystem.Model.Entity.Organizations;
 import com.managesystem.bgsystem.Model.Pojo.Pager;
@@ -103,7 +104,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         List<Organizations> organizationsList = organizationsRepository.findChildOrgs(orgId);
         if (organizationsList.size() > 0) {
             for (Organizations o : organizationsList
-                    ) {
+            ) {
                 orgList.add(o.getId());
                 findChildrenOrgs(o.getId(), orgList);
             }
@@ -358,7 +359,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         List<Organizations> organizations = organizationsRepository.findChildOrgs(id);
         if (organizations.size() > 0) {
             for (Organizations org : organizations
-                    ) {
+            ) {
                 if (org.getParentID() != 0) {
                     organizationsChildList.add(org);
                     findBelowOrgs(org.getId(), organizationsChildList);
@@ -382,7 +383,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         List<Organizations> organizations = organizationsRepository.findChildOrgs(id);
         if (organizations.size() > 0) {
             for (Organizations org : organizations
-                    ) {
+            ) {
                 if (org.getParentID() != 0) {
                     fidList.add(org.getFid());
                     findBelowOrgsFid(org.getId(), fidList);
