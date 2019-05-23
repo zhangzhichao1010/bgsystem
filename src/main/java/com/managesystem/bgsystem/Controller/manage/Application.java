@@ -72,8 +72,7 @@ public class Application {
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, password);
         subject.login(usernamePasswordToken);
         Admin admin = (Admin) subject.getPrincipal();
-        session.setAttribute("isSuperAdmin", admin.isSuperAdmin());    /*  add by lizhifeng */
-        Integer superFid = admin.getSuperFid();
+        Integer superFid = adminService.getSuperFid(admin.getUnitId());
         String superFidKey = "superFid_" + admin.getUnitId();
         List<Integer> childFidList = organizationService.findAllChildFid(admin.getUnitId());
         String childFids = "childFids_" + admin.getUnitId();

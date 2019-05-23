@@ -52,7 +52,4 @@ public class Admin implements Serializable {
     public boolean isSuperAdmin() {
         return type == 255;
     }
-
-    @Transient
-    private Integer superFid;
 }

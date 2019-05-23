@@ -43,14 +43,6 @@ public class ApplicationShiroRealm extends AuthorizingRealm {
             throw new LockedAccountException("账号被锁定,请联系管理员!");
         }
 
-        // root 账号没有绑定 unitid  也没有fid, 也没有superFID 默认让其看到 66432 设置的分类信息
-        if (!admin.isSuperAdmin()) {
-            Integer superFid = adminService.getSuperFid(admin.getUnitId());
-            admin.setSuperFid(superFid);
-        } else {
-            admin.setSuperFid(66432);
-        }
-
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(admin, password, getName());
 
         /*记住我，将用户信息存到Cookie中，浏览器关闭后，下次重启，依然免密登陆*/

@@ -19,19 +19,6 @@ public class AdminUtils {
         return fid;
     }
 
-
-    public static Integer getSuperFid() {
-        Admin admin = (Admin) SecurityUtils.getSubject().getPrincipal();
-        Integer fid = null;
-        if (admin != null) {
-            fid = admin.getSuperFid();
-        } else {
-            throw new NormalException("登录超时，请重新登录！");
-        }
-        return fid;
-    }
-
-
     public static Integer getAdminType() {
         Admin admin = (Admin) SecurityUtils.getSubject().getPrincipal();
         Integer type = null;
