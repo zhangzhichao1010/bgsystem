@@ -5,8 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "ipadress", indexes = {@Index(name = "ipdata", columnList = "type"),
-        @Index(name = "ipdata", columnList = "romoteIP")},
-        uniqueConstraints = {@UniqueConstraint(name = "romoteIp", columnNames = "romoteIP")})
+        @Index(name = "ipdata", columnList = "romoteIP")})
 public class IPAdress implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

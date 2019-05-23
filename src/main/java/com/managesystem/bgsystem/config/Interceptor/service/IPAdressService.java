@@ -1,7 +1,11 @@
 package com.managesystem.bgsystem.config.Interceptor.service;
 
 public interface IPAdressService {
-    Boolean ckeckRemoteIP(String IP);
+    Boolean ckeckIPDataBase(String IP);
 
-    void saveBlackRemoteIP(String IP);
+    Boolean ckeckIPLocalFile(String IP);
+
+    void saveBlackIPDataBase(String IP);
+
+    void saveBlackLocalIP(String IP);
 }
