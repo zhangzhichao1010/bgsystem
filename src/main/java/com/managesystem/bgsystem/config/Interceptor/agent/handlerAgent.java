@@ -33,6 +33,7 @@ public class handlerAgent {
     private IPFilterBean ipFilterBean;
     @Autowired
     private BlackIPLocalService blackIPLocalService;
+
     @Pointcut(value = "@annotation(com.managesystem.bgsystem.config.Interceptor.annotation.IPCheck)")
     public void annotationPointCut() {
     }
@@ -120,12 +121,24 @@ public class handlerAgent {
             case locationfile:
                 blackIPLocalService.saveBlackLocalIP(ip);
                 break;
-            case romotefile:
-            case database:
-                adressService.saveBlackIPDataBase(ip);
+            case romotefile: {
+                adressService.saveBlackIPRemote();
+                addRedisBlackIP(ip);
                 break;
+            }
+            case database: {
+                adressService.saveBlackIPDataBase();
+                addRedisBlackIP(ip);
+                break;
+            }
             default:
                 break;
         }
+    }
+
+    private void addRedisBlackIP(String IP) {
+        String blackIps = redisUtils.get("BlackIPOnly_PERSIST", String.class);
+        blackIps += "," + IP;
+        redisUtils.set("BlackIPOnly_PERSIST", blackIps);
     }
 }

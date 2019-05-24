@@ -4,10 +4,12 @@ import com.managesystem.bgsystem.Utils.RedisUtils;
 import com.managesystem.bgsystem.config.Interceptor.Entity.IPAdressType;
 import com.managesystem.bgsystem.config.Interceptor.Entity.IPDataLocation;
 import com.managesystem.bgsystem.config.Interceptor.Entity.IPFilterBean;
+import com.managesystem.bgsystem.config.Interceptor.service.IPAdressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -19,6 +21,8 @@ public class ApplicationFilter implements ApplicationRunner {
     private RedisUtils redisUtils;
     @Autowired
     private IPFilterBean ipFilterBean;
+    @Autowired
+    private IPAdressService ipAdressService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -27,6 +31,7 @@ public class ApplicationFilter implements ApplicationRunner {
         String path = ipFilterBean.getDataPath();
         switch (location) {
             case database:
+                prepareIPDatabase();
                 break;
             case romotefile:
                 prepareIPRomoteFile();
@@ -86,6 +91,16 @@ public class ApplicationFilter implements ApplicationRunner {
     }
 
     private void prepareIPRomoteFile() {
+        String blackIps = ipAdressService.findBlackIPRemote();
+        redisUtils.set("BlackIPOnly_PERSIST", blackIps);
+        String whiteIps = ipAdressService.findWhiteIPRemote();
+        redisUtils.set("WhiteIPOnly", whiteIps);
+    }
 
+    private void prepareIPDatabase() {
+        String blackIps = ipAdressService.findBlackIPDataBase();
+        redisUtils.set("BlackIPOnly_PERSIST", blackIps);
+        String whiteIps = ipAdressService.findWhiteIPDataBase();
+        redisUtils.set("WhiteIPOnly", whiteIps);
     }
 }

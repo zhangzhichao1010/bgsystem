@@ -2,10 +2,7 @@ package com.managesystem.bgsystem.config.Interceptor.Entity;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
 
-@Component
 @Configuration
 @ConfigurationProperties(prefix = "spring.ip.filter", ignoreUnknownFields = false)
 public class IPFilterBean {
