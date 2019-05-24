@@ -1,8 +1,8 @@
 package com.managesystem.bgsystem.Controller.ipfilter.Impl;
 
 import com.managesystem.bgsystem.Controller.ipfilter.Entity.IPAdress;
-import com.managesystem.bgsystem.config.Interceptor.service.IPAdressService;
-import com.managesystem.bgsystem.config.Interceptor.utils.IpUtils;
+import com.zzz.ipmanage.service.IPAdressService;
+import com.zzz.ipmanage.utils.IpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
