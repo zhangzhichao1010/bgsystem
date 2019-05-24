@@ -1,4 +1,4 @@
-package com.managesystem.bgsystem.config.Interceptor.Entity;
+package com.managesystem.bgsystem.config.ipfilter.Entity;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

@@ -1,11 +1,10 @@
-package com.managesystem.bgsystem.config.Interceptor.annotation;
+package com.managesystem.bgsystem.config.ipfilter.annotation;
 
 
-import com.managesystem.bgsystem.config.Interceptor.Entity.FetchType;
+import com.managesystem.bgsystem.config.ipfilter.Entity.FetchType;
 
 import java.lang.annotation.*;
-
-import static com.managesystem.bgsystem.config.Interceptor.Entity.FetchType.EAGER;
+import static com.managesystem.bgsystem.config.ipfilter.Entity.FetchType.EAGER;
 
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

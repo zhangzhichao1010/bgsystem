@@ -1,4 +1,4 @@
-package com.managesystem.bgsystem.config.Interceptor.utils;
+package com.managesystem.bgsystem.config.ipfilter.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;

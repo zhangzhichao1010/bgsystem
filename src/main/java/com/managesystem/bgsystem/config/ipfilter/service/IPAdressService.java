@@ -1,4 +1,4 @@
-package com.managesystem.bgsystem.config.Interceptor.service;
+package com.managesystem.bgsystem.config.ipfilter.service;
 
 public interface IPAdressService {
     void saveBlackIPDataBase();

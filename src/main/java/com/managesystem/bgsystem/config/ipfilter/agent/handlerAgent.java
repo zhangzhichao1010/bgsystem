@@ -1,13 +1,12 @@
-package com.managesystem.bgsystem.config.Interceptor.agent;
+package com.managesystem.bgsystem.config.ipfilter.agent;
 
-import com.managesystem.bgsystem.config.Interceptor.Entity.FetchType;
-import com.managesystem.bgsystem.config.Interceptor.Entity.IPDataLocation;
-import com.managesystem.bgsystem.config.Interceptor.Entity.IPFilterBean;
-import com.managesystem.bgsystem.config.Interceptor.annotation.IPCheck;
-import com.managesystem.bgsystem.config.Interceptor.service.BlackIPLocalService;
-import com.managesystem.bgsystem.config.Interceptor.service.IPAdressService;
-import com.managesystem.bgsystem.config.Interceptor.utils.RedisToolsUtils;
-import com.managesystem.bgsystem.config.Interceptor.utils.StringUtils;
+import com.managesystem.bgsystem.config.ipfilter.Entity.FetchType;
+import com.managesystem.bgsystem.config.ipfilter.Entity.IPDataLocation;
+import com.managesystem.bgsystem.config.ipfilter.Entity.IPFilterBean;
+import com.managesystem.bgsystem.config.ipfilter.annotation.IPCheck;
+import com.managesystem.bgsystem.config.ipfilter.service.BlackIPLocalService;
+import com.managesystem.bgsystem.config.ipfilter.service.IPAdressService;
+import com.managesystem.bgsystem.config.ipfilter.utils.RedisToolsUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -20,7 +19,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.lang.reflect.Method;
 
 @Aspect
 @Component
@@ -34,7 +32,7 @@ public class handlerAgent {
     @Autowired
     private BlackIPLocalService blackIPLocalService;
 
-    @Pointcut(value = "@annotation(com.managesystem.bgsystem.config.Interceptor.annotation.IPCheck)")
+    @Pointcut(value = "@annotation(com.managesystem.bgsystem.config.ipfilter.annotation.IPCheck)")
     public void annotationPointCut() {
     }
 

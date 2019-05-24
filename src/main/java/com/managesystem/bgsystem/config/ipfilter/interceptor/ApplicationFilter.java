@@ -1,10 +1,10 @@
-package com.managesystem.bgsystem.config.Interceptor.HandlerInterceptor;
+package com.managesystem.bgsystem.config.ipfilter.interceptor;
 
 import com.managesystem.bgsystem.Utils.RedisUtils;
-import com.managesystem.bgsystem.config.Interceptor.Entity.IPAdressType;
-import com.managesystem.bgsystem.config.Interceptor.Entity.IPDataLocation;
-import com.managesystem.bgsystem.config.Interceptor.Entity.IPFilterBean;
-import com.managesystem.bgsystem.config.Interceptor.service.IPAdressService;
+import com.managesystem.bgsystem.config.ipfilter.Entity.IPAdressType;
+import com.managesystem.bgsystem.config.ipfilter.Entity.IPDataLocation;
+import com.managesystem.bgsystem.config.ipfilter.Entity.IPFilterBean;
+import com.managesystem.bgsystem.config.ipfilter.service.IPAdressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

@@ -1,4 +1,4 @@
-package com.managesystem.bgsystem.config.Interceptor.utils;
+package com.managesystem.bgsystem.config.ipfilter.utils;
 
 public class IpUtils {
     /**
