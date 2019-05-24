@@ -5,6 +5,7 @@ import com.managesystem.bgsystem.Model.Pojo.Pager;
 import com.managesystem.bgsystem.Service.Interface.OrganizationService;
 import com.managesystem.bgsystem.Utils.CXConstants;
 import com.managesystem.bgsystem.Utils.DWZJsonUtils;
+import com.managesystem.bgsystem.config.Interceptor.Entity.FetchType;
 import com.managesystem.bgsystem.config.Interceptor.annotation.IPCheck;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.Logical;
@@ -37,7 +38,7 @@ public class OrganizationsController {
 
     @RequestMapping(value = "listOrganizations")
     @RequiresPermissions(value = "wqew")
-    @IPCheck(timesPerSecond = 5)
+    @IPCheck(timesPerSecond = 5, fetch = FetchType.LAZY, allowTryTimes = 2)
     public String listOrganizations(ModelMap model, @RequestParam(required = false) String pageNum, @RequestParam(required = false) String numPerPage, @RequestParam(required = false) String searchWord,
                                     @RequestParam(required = false, value = "parentID") Long parentID, @RequestParam(required = false, value = "unitlevel") String unitlevel, @RequestParam(required = false) String fid) {
         if (pageNum == null) {

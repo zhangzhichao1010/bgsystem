@@ -42,13 +42,13 @@ public class ApplicationFilter implements ApplicationRunner {
     private void prepareIPLocationFile(IPAdressType type, String path) {
         switch (type) {
             case BlackIPOnly:
-                preIpData("BlackIPOnly", path);
+                preIpData("BlackIPOnly_PERSIST", path);
                 break;
             case WhiteIPOnly:
                 preIpData("WhiteIPOnly", path);
                 break;
             case BlackAndWhite:
-                preIpData("BlackIPOnly", path);
+                preIpData("BlackIPOnly_PERSIST", path);
                 preIpData("WhiteIPOnly", path);
                 break;
             default:
