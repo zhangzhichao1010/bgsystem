@@ -1,25 +1,16 @@
 package com.managesystem.bgsystem.Controller.ipfilter.Impl;
 
-import com.managesystem.bgsystem.Utils.RedisUtils;
-import com.managesystem.bgsystem.config.Interceptor.Entity.IPFilterBean;
-import com.managesystem.bgsystem.config.Interceptor.Repository.IPAdressRepository;
-import com.managesystem.bgsystem.config.Interceptor.Entity.IPAdress;
-import com.managesystem.bgsystem.config.Interceptor.Entity.IPAdressType;
+import com.managesystem.bgsystem.Controller.ipfilter.Entity.IPAdress;
 import com.managesystem.bgsystem.config.Interceptor.service.IPAdressService;
 import com.managesystem.bgsystem.config.Interceptor.utils.IpUtils;
-import com.managesystem.bgsystem.config.Interceptor.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
 import javax.servlet.http.HttpServletRequest;
-import java.io.*;
 import java.util.List;
-import java.util.Properties;
 
 @Service
 public class IPAdressServiceImpl implements IPAdressService {

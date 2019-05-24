@@ -1,6 +1,6 @@
-package com.managesystem.bgsystem.config.Interceptor.Repository;
+package com.managesystem.bgsystem.Controller.ipfilter.Impl;
 
-import com.managesystem.bgsystem.config.Interceptor.Entity.IPAdress;
+import com.managesystem.bgsystem.Controller.ipfilter.Entity.IPAdress;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
