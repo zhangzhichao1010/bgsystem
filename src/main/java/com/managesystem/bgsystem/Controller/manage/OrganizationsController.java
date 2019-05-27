@@ -43,6 +43,7 @@ public class OrganizationsController {
     @IPCheck(timesPerSecond = 5, fetch = FetchType.LAZY, allowTryTimes = 2)
     public String listOrganizations(ModelMap model, @RequestParam(required = false) String pageNum, @RequestParam(required = false) String numPerPage, @RequestParam(required = false) String searchWord,
                                     @RequestParam(required = false, value = "parentID") Long parentID, @RequestParam(required = false, value = "unitlevel") String unitlevel, @RequestParam(required = false) String fid) {
+        int a = 1 / 0;
         if (pageNum == null) {
             pageNum = CXConstants.global_pageNum;
         }

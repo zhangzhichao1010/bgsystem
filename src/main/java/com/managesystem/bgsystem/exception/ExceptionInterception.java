@@ -1,6 +1,7 @@
 package com.managesystem.bgsystem.exception;
 
 import com.managesystem.bgsystem.Utils.DWZJsonUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -21,13 +22,13 @@ import javax.validation.UnexpectedTypeException;
  * 异常拦截
  * */
 @ControllerAdvice(basePackages = {"com.managesystem.bgsystem.Controller.manage", "com.managesystem.bgsystem.Service.InterfaceImpl"})
+@Slf4j
 public class ExceptionInterception {
     @ExceptionHandler(value = UnauthorizedException.class)
     @ResponseBody
     Object handleUnauthorizedException(Exception e, HttpServletRequest request) {
         String url = "/manage/login";
         String json = DWZJsonUtils.getJson("300", "对不起，您没有操作权限!", "", "forward", url);
-
         return json;
     }
 
@@ -64,18 +65,20 @@ public class ExceptionInterception {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    Object handleException(Exception e) {
+    Object handleException(HttpServletRequest request, Exception e) {
         e.printStackTrace();
         String json = DWZJsonUtils.getJson("300", "数据错误!");
+        log.error(request.getServletPath() + ":" + e.getMessage());
         return json;
     }
 
     @ExceptionHandler(value = {UnknownAccountException.class, LockedAccountException.class, IncorrectCredentialsException.class})
-    Object handleShiroException(Exception e) {
+    Object handleShiroException(HttpServletRequest request, Exception e) {
         ModelAndView modelAndView = new ModelAndView();
         String msg = e.getMessage();
         modelAndView.addObject("msg", msg);
         modelAndView.setViewName("manage/Application/login");
+        log.error(request.getServletPath() + ":" + e.getMessage());
         return modelAndView;
     }
 

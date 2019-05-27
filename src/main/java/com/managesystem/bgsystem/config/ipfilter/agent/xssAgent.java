@@ -1,27 +1,17 @@
 package com.managesystem.bgsystem.config.ipfilter.agent;
-import com.managesystem.bgsystem.config.ipfilter.annotation.XSSFilter;
 import com.managesystem.bgsystem.config.ipfilter.interceptor.ParameterWrapper;
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 @Aspect
 @Component
 public class xssAgent {
-    @Pointcut(value = "@annotation(com.managesystem.bgsystem.config.ipfilter.annotation.XSSFilter)")
+  /*  @Pointcut(value = "@annotation(com.managesystem.bgsystem.config.ipfilter.annotation.XSSFilter)")
     public void annotationPointCut() {
     }
 
@@ -31,7 +21,7 @@ public class xssAgent {
         String[] attackFields = sign.getMethod().getAnnotation(XSSFilter.class).attackField();
 
     }
-
+*/
     private ParameterWrapper getParams(String[] attackFields) {
         ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = servletRequestAttributes.getRequest();
