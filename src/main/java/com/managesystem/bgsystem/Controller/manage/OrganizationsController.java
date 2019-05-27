@@ -7,6 +7,7 @@ import com.managesystem.bgsystem.Utils.CXConstants;
 import com.managesystem.bgsystem.Utils.DWZJsonUtils;
 import com.managesystem.bgsystem.config.ipfilter.Entity.FetchType;
 import com.managesystem.bgsystem.config.ipfilter.annotation.IPCheck;
+import com.managesystem.bgsystem.config.ipfilter.annotation.XSSFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.thymeleaf.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 /*
@@ -93,6 +95,7 @@ public class OrganizationsController {
     @ResponseBody
     @RequestMapping(value = "saveOrganization")
     @RequiresPermissions(value = {"wqew-1", "wqew-2"}, logical = Logical.OR)
+    @XSSFilter
     public String saveOrganization(Organizations organization, @RequestParam(required = false, value = "unitlevel") String unitlevel) {
         String json = "";
         Integer code = organizationService.saveOrganization(organization);
