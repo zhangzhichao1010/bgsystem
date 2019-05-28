@@ -19,7 +19,6 @@ public class BgsystemApplication {
 
     @Bean
     public FilterRegistrationBean testFilterRegistration() {
-
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(new ParamsFilter());
         registration.addUrlPatterns("/*");
